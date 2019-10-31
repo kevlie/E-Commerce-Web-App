@@ -1,31 +1,22 @@
 import React from "react";
-import "./App.css";
+import CategoriesData from "./components/CategoriesData/CategoriesData.component";
 import NavBar from "./components/NavBar/NavBar.js";
-import Product from "./components/Products/Products";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+// import Product from "./components/Products/Products";
+// import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="app">
+// Use class only when we require state objects
+
+function App() {
+  return (
+    <div>
+      <div>
         <NavBar />
-        <div className="app-body">
-          <div className="content">
-            <BrowserRouter>
-              <Switch>
-                <Route path="/" component={Product} />
-                <Route
-                  component={() => (
-                    <div style={{ padding: 20 }}>Page not found</div>
-                  )}
-                />
-              </Switch>
-            </BrowserRouter>
-          </div>
+        <div>
+          <CategoriesData />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;

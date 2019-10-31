@@ -1,4 +1,4 @@
-import { sampleProducts } from "./Data";
+import { sampleProducts } from "./ProductData";
 
 ///
 //

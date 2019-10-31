@@ -13,7 +13,7 @@ class NavBar extends Component {
     return (
       <AppBar
         position="static"
-        style={{ backgroundColor: "#FFF8DC", padding: 10 }}
+        style={{ backgroundColor: "lightblue", padding: 10 }}
       >
         <Toolbar>
           <div className="left-part">
@@ -30,10 +30,8 @@ class NavBar extends Component {
               color="primary"
             >
               Log in
-              </Button>
-            <IconButton
-              aria-label="Cart"
-            >
+            </Button>
+            <IconButton>
               <Badge badgeContent={this.props.nrOfItemsInCard} color="primary">
                 <ShoppingCartIcon />
               </Badge>
