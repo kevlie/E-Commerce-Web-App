@@ -7,23 +7,17 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Tooltip from "@material-ui/core/Tooltip";
+import "./item.css";
 
 class ConnectedItem extends Component {
   render() {
     return (
       <Card
-        style={{ width: 200, height: 270, margin: 10, display: "inline-block" }}
+        style={{ width: 300, height: 300, margin: 20, display: "inline-block" }}
       >
-        <CardActionArea
-        // onClick={() => {
-        //   this.props.history.push("/details/" + this.props.item.id);
-        // }}
-        >
-          <CardMedia
-            style={{ height: 140 }}
-            image={this.props.item.imageUrls[0]}
-          />
-          <CardContent style={{ height: 50 }}>
+        <CardActionArea>
+          <CardMedia className="cardMedia" image={this.props.item.imageUrls} />
+          <CardContent>
             <div
               style={{
                 marginLeft: 5,
@@ -35,25 +29,9 @@ class ConnectedItem extends Component {
             >
               {this.props.item.name}
             </div>
-            <div style={{ margin: 5 }}>Price: {this.props.item.price} $</div>
-            <div style={{ color: "#1a9349", fontWeight: "bold", margin: 5 }}>
-              {this.props.item.popular && "Popular"}
-            </div>
+            <div style={{ margin: 5 }}>Price: ${this.props.item.price}</div>
           </CardContent>
         </CardActionArea>
-        <CardActions
-          style={{ display: "flex", alignItems: "center", height: 45 }}
-        >
-          <Tooltip title="Add to cart">
-            <IconButton
-              size="small"
-              color="primary"
-              aria-label="Add to shopping cart"
-            >
-              <AddShoppingCartIcon size="small" />
-            </IconButton>
-          </Tooltip>
-        </CardActions>
       </Card>
     );
   }
