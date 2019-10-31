@@ -14,13 +14,13 @@ class CategoriesData extends React.Component {
           categoryName: "SHOES",
           imageUrl: "https://i.ibb.co/wMdJ7x9/shoes.jpg",
           id: 1,
-          linkUrl: "shop/shoes"
+          linkUrl: "shoes"
         },
         {
           categoryName: "WATCHES",
           imageUrl: "https://i.ibb.co/WtyMhSj/watches.jpg",
           id: 2,
-          linkUrl: "shop/jackets"
+          linkUrl: "watches"
         }
       ]
     };

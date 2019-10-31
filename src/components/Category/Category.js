@@ -1,8 +1,12 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import "./Category.css";
 
-const Category = ({ category }) => (
-  <div className="category">
+const Category = ({ category, match, history }) => (
+  <div
+    className="category"
+    onClick={() => history.push(`${match.url}${category.linkUrl}`)}
+  >
     <div
       className="image"
       style={{
@@ -13,4 +17,4 @@ const Category = ({ category }) => (
   </div>
 );
 
-export default Category;
+export default withRouter(Category);
