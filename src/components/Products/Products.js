@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
 import Item from "../Item/Item";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import queryString from "query-string";
-import Api from "../Api.js";
+import Api from "../Api";
 
-class Product extends Component {
+// This component is responsible for searching products.
+// It performs the search based on parameters in the query string
+// (because of this much state of this component actually lives in the URL).
+// The URL is checked on first mount and when URL changes.
+// We use query strings so that user could share a link to his/her search results for example.
+class Products extends Component {
   constructor(props) {
     super(props);
 
@@ -14,8 +20,6 @@ class Product extends Component {
       totalItemsCount: null,
       items: []
     };
-
-    this.updateQueryString = this.updateQueryString.bind(this);
   }
 
   updateQueryString(newValues) {
@@ -45,7 +49,6 @@ class Product extends Component {
     this.fetchData();
   }
 
-  // Determine page title.
   pageTitle() {
     let pageTitle = "Search results";
     let category = queryString.parse(this.props.location.search).category;
@@ -77,21 +80,6 @@ class Product extends Component {
               </div>
             )}
           </div>
-
-          {/* <Select
-            style={{ maxWidth: 400, marginBottom: 10 }}
-            value={sortValue}
-            MenuProps={{
-              style: {
-                maxHeight: 500
-              }
-            }}
-            onChange={e => {
-              this.updateQueryString({ sortValue: e.target.value });
-            }}
-          >
-            {sortOptions}
-          </Select> */}
         </div>
         {/* Here go the items */}
         {this.state.items.map(item => {
@@ -102,4 +90,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default Products;
