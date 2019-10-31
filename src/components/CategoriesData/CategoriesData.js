@@ -1,8 +1,8 @@
 import React from "react";
 
-import Category from "../Category/Category.component";
+import Category from "../Category/Category";
 
-import "./CategoriesData.styles.css";
+import "./CategoriesData.css";
 
 class CategoriesData extends React.Component {
   constructor() {

@@ -1,5 +1,5 @@
 import React from "react";
-import CategoriesData from "./components/CategoriesData/CategoriesData.component";
+import CategoriesData from "./components/CategoriesData/CategoriesData";
 import NavBar from "./components/NavBar/NavBar.js";
 // import Product from "./components/Products/Products";
 // import { BrowserRouter, Switch, Route } from "react-router-dom";

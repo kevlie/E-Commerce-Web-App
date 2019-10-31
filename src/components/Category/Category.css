@@ -1,0 +1,25 @@
+.category {
+  align-items: center;
+  justify-content: center;
+  min-width: 50%;
+  height: 240px;
+  flex: auto;
+  display: flex;
+  margin: 20px 8.5px;
+}
+
+.category :hover {
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.categoryName {
+  font-size: 60px;
+  color: rgb(250, 247, 237);
+  position: absolute;
+}
