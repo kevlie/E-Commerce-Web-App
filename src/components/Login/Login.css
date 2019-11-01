@@ -1,0 +1,14 @@
+
+.paper {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form {
+    width: 100%;
+    margin-top: 10px;
+}
+.submit {
+    margin: 100px 100px 100px 100px;
+}

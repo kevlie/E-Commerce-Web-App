@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import logo from "../../images/newshop.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import { withRouter } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
@@ -28,6 +29,9 @@ class NavBar extends Component {
               variant="outlined"
               style={{ marginRight: 20 }}
               color="primary"
+              onClick={() => {
+                this.props.history.push("/login")
+              }}
             >
               Log in
             </Button>
@@ -42,4 +46,4 @@ class NavBar extends Component {
     );
   }
 }
-export default NavBar;
+export default withRouter(NavBar)

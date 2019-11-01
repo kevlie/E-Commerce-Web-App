@@ -5,7 +5,10 @@ import "./Category.css";
 const Category = ({ category, match, history }) => (
   <div
     className="category"
-    onClick={() => history.push(`${match.url}${category.linkUrl}`)}
+    onClick={() => {
+      history.push(`${match.url}${category.linkUrl}`)
+      console.log(match.url)
+    }}
   >
     <div
       className="image"
