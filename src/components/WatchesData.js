@@ -29,22 +29,6 @@ const watchData = [
     price: 5000,
     imageUrls:
       "https://cache.mrporter.com/variants/images/666467151985137/in/w2000_q80.jpg"
-  },
-  {
-    id: 4,
-    name: "Cartier",
-    category: "Watches",
-    price: 5000,
-    imageUrls:
-      "https://cache.mrporter.com/variants/images/666467151985137/in/w2000_q80.jpg"
-  },
-  {
-    id: 4,
-    name: "Cartier",
-    category: "Watches",
-    price: 5000,
-    imageUrls:
-      "https://cache.mrporter.com/variants/images/666467151985137/in/w2000_q80.jpg"
   }
 ];
 
