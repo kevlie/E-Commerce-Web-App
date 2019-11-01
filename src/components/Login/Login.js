@@ -59,10 +59,6 @@ class Login extends Component {
                 });
               }}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               fullWidth
               variant="contained"
