@@ -7,14 +7,6 @@ import WatchProducts from "./components/Products/WatchProducts";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
-const ShoesPage = () => (
-  <div>
-    <h1>WATCHES PAGE </h1>
-  </div>
-);
-
-// Use class only when we require state objects
-
 function App() {
   return (
     <div>
