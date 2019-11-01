@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
-import shoeProduct from "../ShoesData.js";
+import watchData from "../WatchesData.js";
 
-class Products extends Component {
+class WatchProducts extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      shoeCollection: shoeProduct
+      watchCollection: watchData
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.shoeCollection.map(item => {
+        {this.state.watchCollection.map(item => {
           return <Item key={item.id} item={item} />;
         })}
       </div>
@@ -22,4 +22,4 @@ class Products extends Component {
   }
 }
 
-export default Products;
+export default WatchProducts;

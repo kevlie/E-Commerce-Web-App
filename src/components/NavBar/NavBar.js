@@ -17,26 +17,30 @@ class NavBar extends Component {
         style={{ backgroundColor: "lightblue", padding: 10 }}
       >
         <Toolbar>
-          <div className="left-part">
+          <div className="left-navbar">
             <img
               src={logo}
               alt={"Logo"}
-              style={{ marginLeft: 10, height: 60 }}
+              className="logo"
+              onClick={() => {
+                this.props.history.push("/");
+              }}
             />
           </div>
-          <div className="right-part">
+          <div className="right-navbar">
             <Button
               variant="outlined"
               style={{ marginRight: 20 }}
               color="primary"
               onClick={() => {
-                this.props.history.push("/login")
+                this.props.history.push("/login");
               }}
             >
               Log in
             </Button>
             <IconButton>
-              <Badge badgeContent={this.props.nrOfItemsInCard} color="primary">
+              {/* change badgecontent to number of items in cart */}
+              <Badge badgeContent={1} color="primary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
@@ -46,4 +50,4 @@ class NavBar extends Component {
     );
   }
 }
-export default withRouter(NavBar)
+export default withRouter(NavBar);

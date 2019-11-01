@@ -6,8 +6,7 @@ const Category = ({ category, match, history }) => (
   <div
     className="category"
     onClick={() => {
-      history.push(`${match.url}${category.linkUrl}`)
-      console.log(match.url)
+      history.push(`${match.url}${category.linkUrl}`);
     }}
   >
     <div

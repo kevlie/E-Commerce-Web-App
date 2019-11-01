@@ -2,15 +2,14 @@ import React from "react";
 import CategoriesData from "./components/CategoriesData/CategoriesData";
 import NavBar from "./components/NavBar/NavBar.js";
 import { Switch, Route } from "react-router-dom";
-import Product from "./components/Products/Products";
-import Login from "./components/Login/Login"
-import Register from "./components/Register/Register"
-
-// import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ShoeProducts from "./components/Products/ShoeProducts";
+import WatchProducts from "./components/Products/WatchProducts";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 const ShoesPage = () => (
   <div>
-    <h1>SHOES PAGE </h1>
+    <h1>WATCHES PAGE </h1>
   </div>
 );
 
@@ -23,37 +22,16 @@ function App() {
         <NavBar />
         <div>
           <Switch>
-            <Route exact path="/login" component={Login}/>
+            <Route exact path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route exact path="/" component={CategoriesData} />
-            <Route path="/shoes" component={Product} />
+            <Route path="/shoes" component={ShoeProducts} />
+            <Route path="/watches" component={WatchProducts} />
           </Switch>
         </div>
       </div>
     </div>
   );
 }
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <div className="app">
-//         {/* <NavBar /> */}
-//         <div className="app-body">
-//           <div className="content">
-//             <BrowserRouter>
-//               <Switch>
-//                 <Route path="/" component={Product} />
-//                 <Route
-//                   component={() => (
-//                     <div style={{ padding: 20 }}>Page not found</div>
-//                   )}
-//                 />
-//               </Switch>
-//             </BrowserRouter>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+
 export default App;
