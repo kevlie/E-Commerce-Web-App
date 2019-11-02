@@ -19,7 +19,7 @@ class Item extends Component {
             <div className="price">Price: ${this.props.item.price}</div>
           </CardContent>
         </CardActionArea>
-        <CardActions className="addItem" onClick={()=>this.props.addToCart(this.props.item.id)}>
+        <CardActions className="addItem" onClick={()=>this.props.addToCart({id:this.props.item.id, category: this.props.item.category})}>
           <div>Add to Cart</div>
         </CardActions>
       </Card>
