@@ -8,6 +8,7 @@ import logo from "../../images/newshop.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { withRouter } from "react-router-dom";
+import ShoppingCartBar from "../ShoppingCartBar/ShoppingCartBar";
 import { useSelector, useDispatch, connect } from "react-redux";
 import sign_in from "../../redux/actions.js";
 
@@ -60,13 +61,8 @@ class NavBar extends Component {
                 Log out
               </Button>
             )}
-            <IconButton>
-              {/* change badgecontent to number of items in cart */}
-              <Badge badgeContent={1} color="primary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
           </div>
+          <ShoppingCartBar items={this.props.cartItems}/>
         </Toolbar>
       </AppBar>
     );

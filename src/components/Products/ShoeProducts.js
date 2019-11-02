@@ -15,7 +15,7 @@ class ShoeProducts extends Component {
     return (
       <div>
         {this.state.shoeCollection.map(item => {
-          return <Item key={item.id} item={item} />;
+          return <Item key={item.id} item={item} addToCart={this.props.addToCart} />;
         })}
       </div>
     );
