@@ -8,39 +8,24 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent";
 
-class App extends Component{
-  constructor() {
-    super()
-    this.state={
-      cart :[]
-    };
-    this.addToCart = this.addToCart.bind(this)
-  }
-
-  addToCart(item) {
-    this.setState({cart: [...this.state.cart, item]})
-    console.log(item)
-  }
-
-  render(){
-    return (
+function App() {
+  return (
+    <div>
       <div>
+        <NavBar/>
         <div>
-          <NavBar cartItems={this.state.cart}/>
-          <div>
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route exact path="/" component={CategoriesData} />
-              <Route path="/shoes" render={routeProps => <ShoeProducts {...routeProps} addToCart ={this.addToCart}/>} />
-              <Route path="/watches" component={WatchProducts} />
-              <Route path="/checkout" render={routeProps => <CheckoutComponent {...routeProps} cart ={this.state.cart}/>}/>
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route exact path="/" component={CategoriesData} />
+            <Route path="/shoes" component={ShoeProducts} />
+            <Route path="/watches" component={WatchProducts} />
+            <Route path="/checkout" component={CheckoutComponent}/>
+          </Switch>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;

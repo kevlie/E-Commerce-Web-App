@@ -7,6 +7,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 
 import "./item.css";
+import {ADD_ITEM} from "../../redux/actions";
+import {connect} from "react-redux";
 
 class Item extends Component {
   render() {
@@ -19,7 +21,7 @@ class Item extends Component {
             <div className="price">Price: ${this.props.item.price}</div>
           </CardContent>
         </CardActionArea>
-        <CardActions className="addItem" onClick={()=>this.props.addToCart({id:this.props.item.id, category: this.props.item.category})}>
+        <CardActions className="addItem" onClick={()=>{this.props.dispatch(ADD_ITEM(this.props.item))}}>
           <div>Add to Cart</div>
         </CardActions>
       </Card>
@@ -27,4 +29,4 @@ class Item extends Component {
   }
 }
 
-export default Item;
+export default connect()(Item);

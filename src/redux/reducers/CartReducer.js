@@ -1,7 +1,7 @@
 const CartReducer = (state = [], action) => {
     switch(action.type){
         case 'ADD_ITEM':
-            return state.push(action.item)
+            return [...state,action.item];
         default:
             return state
     }

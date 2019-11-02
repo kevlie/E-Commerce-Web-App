@@ -4,6 +4,12 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import IconButton from "@material-ui/core/IconButton";
 import './ShoppingCartBar.css'
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+const mapStateToProps = state => {
+    return{
+        cart: state.cart
+    };
+};
 
 class ShoppingCartBar extends Component {
     constructor(props) {
@@ -16,14 +22,15 @@ class ShoppingCartBar extends Component {
     }
 
     render() {
+        console.log(this.props.cart)
         return (
             <IconButton onClick={this.onClick}>
                 {/* change badgecontent to number of items in cart */}
-                <Badge badgeContent={this.props.items.length} color="primary">
+                <Badge badgeContent={this.props.cart.length} color="primary">
                     <ShoppingCartIcon/>
                 </Badge>
             </IconButton>
         );
     }
 }
-export default withRouter(ShoppingCartBar);
+export default withRouter(connect(mapStateToProps)(ShoppingCartBar));
