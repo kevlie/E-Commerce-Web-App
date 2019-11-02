@@ -1,16 +1,14 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "./Login.css";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import accountData from "../AccountData.js";
 import sign_in from "../../redux/actions.js";
-import { useDispatch, connect } from "react-redux";
+import {connect} from "react-redux";
 
 const mapStateToProps = state => {
   return {

@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {withRouter} from "react-router-dom";
 import {Card, CardContent} from "@material-ui/core";
 
 class CheckoutComponent extends Component {

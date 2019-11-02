@@ -5,6 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import './ShoppingCartBar.css'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+
 const mapStateToProps = state => {
     return{
         cart: state.cart

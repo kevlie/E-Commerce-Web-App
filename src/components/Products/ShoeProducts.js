@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Item from "../Item/Item";
 import shoeData from "../ShoesData.js";
 
