@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import React, {Component} from "react";
 import "./NavBar.css";
-import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Button from "@material-ui/core/Button";
 import logo from "../../images/newshop.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { withRouter } from "react-router-dom";
-import { useSelector, useDispatch, connect } from "react-redux";
+import {withRouter} from "react-router-dom";
+import ShoppingCartBar from "../ShoppingCartBar/ShoppingCartBar";
+import {connect} from "react-redux";
 import sign_in from "../../redux/actions.js";
 
 const mapStateToProps = state => {
@@ -60,13 +58,8 @@ class NavBar extends Component {
                 Log out
               </Button>
             )}
-            <IconButton>
-              {/* change badgecontent to number of items in cart */}
-              <Badge badgeContent={1} color="primary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
           </div>
+          <ShoppingCartBar/>
         </Toolbar>
       </AppBar>
     );
