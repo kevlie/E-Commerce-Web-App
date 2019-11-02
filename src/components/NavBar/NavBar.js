@@ -59,7 +59,7 @@ class NavBar extends Component {
               </Button>
             )}
           </div>
-          <ShoppingCartBar items={this.props.cartItems}/>
+          <ShoppingCartBar/>
         </Toolbar>
       </AppBar>
     );
