@@ -7,3 +7,4 @@
 /.idea
 /src/.DS_Store
 /src/images/.DS_Store
+yarn.lock

@@ -9,6 +9,14 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "./Login.css";
 import { withRouter } from "react-router-dom";
 import accountData from "../AccountData.js";
+import sign_in from "../../redux/actions.js";
+import { useDispatch, connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  };
+};
 
 class Login extends Component {
   constructor(props) {
@@ -71,7 +79,9 @@ class Login extends Component {
                     this.state.email === accountData[i].email &&
                     this.state.password === accountData[i].password
                   ) {
+                    this.props.dispatch(sign_in());
                     this.props.history.push("/");
+                    break;
                   } else {
                     this.setState({
                       fail: true
@@ -102,4 +112,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+export default withRouter(connect(mapStateToProps)(Login));

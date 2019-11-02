@@ -8,9 +8,18 @@ import logo from "../../images/newshop.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { withRouter } from "react-router-dom";
+import { useSelector, useDispatch, connect } from "react-redux";
+import sign_in from "../../redux/actions.js";
+
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  };
+};
 
 class NavBar extends Component {
   render() {
+    // const isLoggedIn = useSelector(state => state.isLoggedIn);
     return (
       <AppBar
         position="static"
@@ -28,16 +37,29 @@ class NavBar extends Component {
             />
           </div>
           <div className="right-navbar">
-            <Button
-              variant="outlined"
-              style={{ marginRight: 20 }}
-              color="primary"
-              onClick={() => {
-                this.props.history.push("/login");
-              }}
-            >
-              Log in
-            </Button>
+            {!this.props.isLoggedIn ? (
+              <Button
+                variant="outlined"
+                style={{ marginRight: 20 }}
+                color="primary"
+                onClick={() => {
+                  this.props.history.push("/login");
+                }}
+              >
+                Log in
+              </Button>
+            ) : (
+              <Button
+                variant="outlined"
+                style={{ marginRight: 20 }}
+                color="primary"
+                onClick={() => {
+                  this.props.dispatch(sign_in());
+                }}
+              >
+                Log out
+              </Button>
+            )}
             <IconButton>
               {/* change badgecontent to number of items in cart */}
               <Badge badgeContent={1} color="primary">
@@ -50,4 +72,4 @@ class NavBar extends Component {
     );
   }
 }
-export default withRouter(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));
