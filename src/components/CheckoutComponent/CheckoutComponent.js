@@ -1,8 +1,6 @@
 import React, {Component, Fragment} from "react";
-import {Card, CardContent, Drawer, ListItemText, Typography} from "@material-ui/core";
+import {Card, CardContent, Typography} from "@material-ui/core";
 import {connect} from "react-redux";
-import ListItem from "@material-ui/core/ListItem";
-import CardMedia from "@material-ui/core/CardMedia";
 import "./CheckoutComponent.css"
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";

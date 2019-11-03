@@ -5,11 +5,10 @@ import IconButton from "@material-ui/core/IconButton";
 import './ShoppingCartBar.css'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {Drawer, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
+import {Drawer, ListItemText, Typography} from "@material-ui/core";
 import {TOGGLE_CART_DRAWER} from "../../redux/actions";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 
@@ -63,7 +62,6 @@ class ShoppingCartBar extends Component {
                     <div style={{overflow : 'auto'}}>
                     <List>{
                         this.props.cart.map(item => {
-
                                 return(
                                     <Fragment key={item.category + item.id}>
                                         <ListItem key={item.category + item.id}>
