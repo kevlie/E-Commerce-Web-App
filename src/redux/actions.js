@@ -11,4 +11,16 @@ export const ADD_ITEM = item => {
     }
 };
 
-export default {sign_in, ADD_ITEM}
+export const CLEAR_CART = () => {
+    return {
+        type: "CLEAR_CART"
+    }
+}
+
+export const TOGGLE_CART_DRAWER = () => {
+    return {
+        type: 'TOGGLE_CART_DRAWER'
+    }
+};
+
+export default {sign_in, ADD_ITEM, CLEAR_CART, TOGGLE_CART_DRAWER}

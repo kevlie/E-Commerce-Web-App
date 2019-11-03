@@ -1,0 +1,23 @@
+.checkoutImages {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    padding:10px;
+    float: left;
+    object-fit: cover;
+    display: inline;
+}
+
+.checkoutPricing{
+    float:right;
+    padding-right: 30px;
+}
+.interactButtons {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: small;
+}
+
+.checkoutButton{
+    display: flex;
+    justify-content: center;
+}

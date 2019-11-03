@@ -20,7 +20,7 @@ class NavBar extends Component {
     // const isLoggedIn = useSelector(state => state.isLoggedIn);
     return (
       <AppBar
-        position="static"
+        position="sticky"
         style={{ backgroundColor: "lightblue", padding: 10 }}
       >
         <Toolbar>
