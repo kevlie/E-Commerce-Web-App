@@ -9,5 +9,9 @@ In the project directory, you can run:
 
 ### `npm install`
 
+### `npm install react-router-dom`
+
+### `npm -i redux --save`
+
 ### `npm start`
 
