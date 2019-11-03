@@ -58,19 +58,6 @@ class NavBar extends Component {
                 Log out
               </Button>
             )}
-
-            <Button
-                variant="outlined"
-                style={{ marginRight: 20 }}
-                color="primary"
-                onClick={() => {
-                  this.props.history.push("/profile");
-                }}
-              >
-                My Profile
-            </Button>
-
-
           </div>
           <ShoppingCartBar/>
         </Toolbar>
