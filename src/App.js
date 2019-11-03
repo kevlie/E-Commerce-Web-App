@@ -7,8 +7,6 @@ import WatchProducts from "./components/Products/WatchProducts";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent";
-import Profile from "./components/Profile/Profile";
-import ProfileEdict from "./components/ProfileEdict/ProfileEdict";
 
 function App() {
   return (
@@ -23,8 +21,6 @@ function App() {
             <Route path="/shoes" component={ShoeProducts} />
             <Route path="/watches" component={WatchProducts} />
             <Route path="/checkout" component={CheckoutComponent}/>
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile_edict" component={ProfileEdict} />
           </Switch>
         </div>
       </div>
