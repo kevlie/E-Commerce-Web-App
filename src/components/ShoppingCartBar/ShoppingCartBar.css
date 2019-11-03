@@ -1,0 +1,32 @@
+.cartImg {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.MuiDrawer-paperAnchorRight {
+    width: 300px;
+}
+
+.shoppingCartImages {
+    width: 60px;
+    padding-right: 10px;
+}
+
+.shoppingCartItemNames {
+    width: 140px;
+    padding-right: 10px;
+}
+.shoppingCartCount {
+    padding-right: 10px;
+}
+.shoppingCartHeader {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.checkoutButton{
+    display: flex;
+    justify-content: center;
+}
