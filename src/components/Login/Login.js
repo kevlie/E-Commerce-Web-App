@@ -7,7 +7,7 @@ import Container from "@material-ui/core/Container";
 import "./Login.css";
 import {withRouter} from "react-router-dom";
 import accountData from "../AccountData.js";
-import sign_in from "../../redux/actions.js";
+import {sign_in} from "../../redux/actions.js";
 import {connect} from "react-redux";
 
 const mapStateToProps = state => {
