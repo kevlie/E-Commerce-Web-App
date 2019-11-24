@@ -34,6 +34,11 @@ const sessionChecker = (req, res, next) => {
   }
 };
 
-app.listen(3001, () => {
+
+/*************************************************/
+// Express server listening...
+const port = process.env.PORT || 3001;
+
+app.listen(port, () => {
   log(`Listening on port ${port}...`);
 });
