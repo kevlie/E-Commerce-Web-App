@@ -7,15 +7,9 @@ In order to run the web app, run following commands in the react_app and express
 ### `npm install`
 ### `npm start`
 
-The MongoDB is local. In order to set it up run the following commands:
-
-### brew tap mongodb/brew
-### brew install mongodb-community@4.2
-### brew services start mongodb-community
-
-Make sure to leave the address as localhost and port as 27017. (Both Default)
-
-If you do not have homebrew go to https://brew.sh/ and follow the instructions to install
+The MongoDB is hosted on Atlas DB. 
+Admin username is :admin
+pw: csc309
 
 
 
