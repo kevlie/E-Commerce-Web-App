@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Login.css";
 import { withRouter } from "react-router-dom";
-import accountData from "../AccountData.js";
 import { sign_in } from "../../redux/actions.js";
 import { connect } from "react-redux";
 
@@ -26,7 +25,7 @@ class Login extends Component {
     };
   }
 
-  callLoginAPI() {
+  handleLogin() {
     fetch("http://localhost:3001/api/users/login", {
       method: "post",
       headers: {
@@ -96,7 +95,7 @@ class Login extends Component {
               color="primary"
               className="submit"
               onClick={e => {
-                this.callLoginAPI();
+                this.handleLogin();
               }}
             >
               Sign In

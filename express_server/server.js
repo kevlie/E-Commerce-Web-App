@@ -27,20 +27,8 @@ app.use(
 
 app.use("/api/users", userRouter);
 
-// middleware to check for an active user on the session cookie (indicating a logged in user.)
-const sessionChecker = (req, res, next) => {
-  if (req.session.user) {
-    res.redirect("/"); // redirect to homepage if logged in.
-  } else {
-    next(); // next() moves on to the route.
-  }
-};
-
-
-/*************************************************/
 // Express server listening...
 const port = process.env.PORT || 3001;
-
 app.listen(port, () => {
   log(`Listening on port ${port}...`);
 });
