@@ -26,7 +26,7 @@ class Login extends Component {
     };
   }
 
-  callLoginAPI() {
+  handleLogin() {
     fetch("http://localhost:3001/api/users/login", {
       method: "post",
       headers: {
@@ -96,7 +96,7 @@ class Login extends Component {
               color="primary"
               className="submit"
               onClick={e => {
-                this.callLoginAPI();
+                this.handleLogin();
               }}
             >
               Sign In

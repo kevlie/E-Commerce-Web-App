@@ -6,11 +6,9 @@ const { User } = require('../models/user')
 router.post('/login', (req, res) => {
 	User.findByEmailPassword(req.body.email, req.body.password).then((user) => {
 		req.session.user = user._id;
-		res.status(200);
-		res.send("200 OK")
+		res.status(200).end()
     }).catch((error) => {
-		res.status(400)
-		res.send("400 User Not Found")
+		res.status(400).end()
     })
 })
 
@@ -21,7 +19,7 @@ router.get('/logout', (req, res) => {
 		if (error) {
 			res.status(500).send(error)
 		} else {
-			res.redirect('/')
+			res.status(200).end()
 		}
 	})
 })
