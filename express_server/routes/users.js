@@ -5,14 +5,12 @@ const { User } = require('../models/user')
 // A route to login and create a session
 router.post('/login', (req, res) => {
 	User.findByEmailPassword(req.body.email, req.body.password).then((user) => {
-	    if (!user) {
-            res.redirect('/login');
-        } else {
-            req.session.user = user._id;
-            res.redirect('/'); // change to dashboard once implemented
-        }
+		req.session.user = user._id;
+		res.status(200);
+		res.send("200 OK")
     }).catch((error) => {
-		res.status(400).redirect('/login');
+		res.status(400)
+		res.send("400 User Not Found")
     })
 })
 
