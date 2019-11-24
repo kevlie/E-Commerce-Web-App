@@ -1,14 +1,14 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Login.css";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import accountData from "../AccountData.js";
-import sign_in from "../../redux/actions.js";
-import {connect} from "react-redux";
+import { sign_in } from "../../redux/actions.js";
+import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   return {
@@ -25,6 +25,31 @@ class Login extends Component {
       fail: false
     };
   }
+
+  callLoginAPI() {
+    fetch("http://localhost:3001/api/users/login", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    }).then(res => {
+      if (res.status === 400) {
+        this.setState({
+          fail: true
+        });
+      } else {
+        this.props.dispatch(sign_in());
+        this.props.history.push("/");
+      }
+    });
+  }
+
   render() {
     return (
       <Container component="main" maxWidth="xs">
@@ -71,21 +96,7 @@ class Login extends Component {
               color="primary"
               className="submit"
               onClick={e => {
-                //replace with database call later
-                for (let i = 0; i < accountData.length; i++) {
-                  if (
-                    this.state.email === accountData[i].email &&
-                    this.state.password === accountData[i].password
-                  ) {
-                    this.props.dispatch(sign_in());
-                    this.props.history.push("/");
-                    break;
-                  } else {
-                    this.setState({
-                      fail: true
-                    });
-                  }
-                }
+                this.callLoginAPI();
               }}
             >
               Sign In

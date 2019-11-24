@@ -1,6 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/node_modules
+/react_app/node_modules
+/express_server/node_modules
 /.vscode
 /.DS_Store
 /build
