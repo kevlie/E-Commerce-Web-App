@@ -1,12 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Register.css";
-import accountData from "../AccountData.js";
 
 class Register extends Component {
   constructor(props) {
@@ -19,6 +18,32 @@ class Register extends Component {
       fail: false
     };
   }
+
+  handleRegister() {
+    fetch("http://localhost:3001/api/users/register", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName
+      })
+    }).then(res => {
+      if (res.status === 200) {
+        this.props.history.push("/login");
+      } else {
+        this.setState({
+          fail: true
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <Container component="main" maxWidth="xs">
@@ -101,26 +126,8 @@ class Register extends Component {
               variant="contained"
               color="primary"
               className="submit"
-              onClick={e => {
-                //replace with database call later
-                if (
-                  this.state.email !== "default" &&
-                  this.state.password !== "default" &&
-                  this.state.firstName !== "default" &&
-                  this.state.lastName !== "default"
-                ) {
-                  accountData.push({
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName,
-                    email: this.state.email,
-                    password: this.state.password
-                  });
-                  this.props.history.push("/login");
-                } else {
-                  this.setState({
-                    fail: true
-                  });
-                }
+              onClick={() => {
+                this.handleRegister();
               }}
             >
               Sign Up

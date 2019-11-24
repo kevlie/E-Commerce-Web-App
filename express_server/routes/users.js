@@ -27,13 +27,15 @@ router.get('/logout', (req, res) => {
 router.post('/register', (req, res) => {
     const user = new User({
 		email: req.body.email,
-		password: req.body.password
+		password: req.body.password,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName
     })
 	// Save student to the database
 	user.save().then((result) => {
 		res.send(result)
 	}, (error) => {
-		res.status(400).send(error) // 400 for bad request
+		res.status(400).send(error)
 	})
 })
 

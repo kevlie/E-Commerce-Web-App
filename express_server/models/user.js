@@ -18,6 +18,14 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 4
+	},
+	firstName: {
+		type: String,
+		required: true
+	},
+	lastName: {
+		type: String,
+		required: true
 	}
 })
 
