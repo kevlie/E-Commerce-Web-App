@@ -2,6 +2,13 @@ var express = require("express");
 var router = express.Router();
 const { User } = require("../models/user");
 
+// const redirectLogin = (req, res, next) => {
+//   if (!req.session.user) {
+//     res.redirect("/login");
+//   } else {
+//     next();
+//   }
+// };
 // A route to login and create a session
 router.post("/login", (req, res) => {
   User.findByEmailPassword(req.body.email, req.body.password)
@@ -50,9 +57,6 @@ router.get("/profile", (req, res) => {
   User.findById(id)
     .exec()
     .then(docs => {
-      //   console.log(docs);
-      //   res.send(`<h1>Home</h1>
-      //   <h4>${docs}</h4>`);
       res.status(200).json(docs);
     })
     .catch(err => {

@@ -21,14 +21,18 @@ class AccountProfile extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        this.setState({
-          firstName: json.firstName,
-          lastName: json.lastName,
-          email: json.email
-        });
-        console.log(this.state);
-        console.log(json);
-        console.log("hi");
+        if (json === null) {
+          this.props.history.push("/login");
+        } else {
+          this.setState({
+            firstName: json.firstName,
+            lastName: json.lastName,
+            email: json.email
+          });
+        }
+        // console.log(this.state);
+        // console.log(json);
+        // console.log("hi");
       });
     //   console.log(res.json());
   }
