@@ -68,6 +68,9 @@ class NavBar extends Component {
                   variant="outlined"
                   style={{ marginRight: 20 }}
                   color="primary"
+                  onClick={() => {
+                    this.props.history.push("/profile");
+                  }}
                 >
                   Profile
                 </Button>
