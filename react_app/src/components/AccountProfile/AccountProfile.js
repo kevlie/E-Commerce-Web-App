@@ -8,14 +8,29 @@ import "./Profile.css";
 class AccountProfile extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   firstName: accountData.firstName,
-    //   lastName: accountData.lastName,
-    //   email: accountData.email,
-    //   password: accountData.password,
-    //   address: accountData.Address,
-    //   phone_number: accountData.phone_number
-    // };
+    this.state = {
+      firstName: "default",
+      lastName: "default",
+      email: "default",
+      password: "default"
+    };
+
+    fetch("http://localhost:3001/api/users/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          firstName: json.firstName,
+          lastName: json.lastName,
+          email: json.email
+        });
+        console.log(this.state);
+        console.log(json);
+        console.log("hi");
+      });
+    //   console.log(res.json());
   }
 
   //replace all infomations displaying with database calls later
@@ -41,7 +56,7 @@ class AccountProfile extends Component {
                   class="MuiTypography-root jss279 MuiTypography-body1 MuiTypography-col
             orTextSecondary"
                 >
-                  {/* Stephen */}
+                  {this.state.firstName}
                 </p>
 
                 <h2
@@ -54,7 +69,7 @@ class AccountProfile extends Component {
                   class="MuiTypography-root jss279 MuiTypography-body1 MuiTypography-col
             orTextSecondary"
                 >
-                  {/* Utama */}
+                  {this.state.lastName}
                 </p>
 
                 <h2
@@ -67,33 +82,7 @@ class AccountProfile extends Component {
                   class="MuiTypography-root jss279 MuiTypography-body1 MuiTypography-col
             orTextSecondary"
                 >
-                  {/* admin@admin.com */}
-                </p>
-
-                <h2
-                  class="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary 
-            MuiTypography-gutterBottom"
-                >
-                  Address:
-                </h2>
-                <p
-                  class="MuiTypography-root jss279 MuiTypography-body1 MuiTypography-col
-            orTextSecondary"
-                >
-                  {/* 17-777 Bay Stree, Toronto, Ontario, Canada */}
-                </p>
-
-                <h2
-                  class="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary 
-            MuiTypography-gutterBottom"
-                >
-                  Phone Number:
-                </h2>
-                <p
-                  class="MuiTypography-root jss279 MuiTypography-body1 MuiTypography-col
-            orTextSecondary"
-                >
-                  "6786668888"
+                  {this.state.email}
                 </p>
               </div>
             </div>

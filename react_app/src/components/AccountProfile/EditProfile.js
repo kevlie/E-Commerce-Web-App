@@ -75,7 +75,6 @@ class EditProfile extends Component {
               name="password"
               id="password"
               label="Password"
-              value={this.state.password}
               onChange={e => {
                 this.setState({
                   password: e.target.value.toString()
