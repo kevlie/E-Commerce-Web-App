@@ -14,7 +14,9 @@ class AccountProfile extends Component {
       email: "default",
       password: "default"
     };
+  }
 
+  componentDidMount() {
     fetch("http://localhost:3001/api/users/profile", {
       method: "GET",
       credentials: "include"
@@ -30,11 +32,7 @@ class AccountProfile extends Component {
             email: json.email
           });
         }
-        // console.log(this.state);
-        // console.log(json);
-        // console.log("hi");
       });
-    //   console.log(res.json());
   }
 
   //replace all infomations displaying with database calls later
