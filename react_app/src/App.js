@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent";
 import AccountProfile from "./components/AccountProfile/AccountProfile";
 import EditProfile from "./components/AccountProfile/EditProfile";
+import AdminPage from "./components/AdminPage/AdminPage"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/checkout" component={CheckoutComponent} />
             <Route path="/profile" component={AccountProfile} />
             <Route path="/editProfile" component={EditProfile} />
+            <Route path="/adminPage" component={AdminPage} />
           </Switch>
         </div>
       </div>
