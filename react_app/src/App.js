@@ -1,7 +1,7 @@
 import React from "react";
 import CategoriesData from "./components/CategoriesData/CategoriesData";
 import NavBar from "./components/NavBar/NavBar.js";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import ShoeProducts from "./components/Products/ShoeProducts";
 import WatchProducts from "./components/Products/WatchProducts";
 import Login from "./components/Login/Login";

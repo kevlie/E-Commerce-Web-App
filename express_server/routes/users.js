@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { User } = require("../models/user");
+const { User } = require("../schemas/user");
 const bcrypt = require("bcryptjs");
 
 // const redirectLogin = (req, res, next) => {
