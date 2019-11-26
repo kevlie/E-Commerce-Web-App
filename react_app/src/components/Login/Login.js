@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Login.css";
-import { withRouter } from "react-router-dom";
-import { sign_in } from "../../redux/actions.js";
-import { connect } from "react-redux";
+import {withRouter} from "react-router-dom";
+import {sign_in} from "../../redux/actions.js";
+import {connect} from "react-redux";
 
 const mapStateToProps = state => {
   return {
