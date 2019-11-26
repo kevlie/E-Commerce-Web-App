@@ -37,16 +37,20 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-    }).then(res => {
-      if (res.status === 400) {
-        this.setState({
-          fail: true
-        });
-      } else {
-        this.props.dispatch(sign_in());
-        this.props.history.push("/");
-      }
-    });
+    })
+      .then(res => {
+        if (res.status === 400) {
+          this.setState({
+            fail: true
+          });
+        } else {
+          this.props.dispatch(sign_in());
+          this.props.history.push("/");
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
   render() {

@@ -73,6 +73,7 @@ router.get("/profile", (req, res) => {
 });
 
 router.get("/adminPage", (req, res) => {
+  const id = req.params.id;
   User.find()
     .exec()
     .then(docs => {

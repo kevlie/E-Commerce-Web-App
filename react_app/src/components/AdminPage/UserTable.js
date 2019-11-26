@@ -46,11 +46,11 @@ class UserTable extends React.Component {
         } else {
           console.log(json);
           this.setState({ data: json });
-          // this.setState({
-          //   firstName: json.firstName,
-          //   lastName: json.lastName,
-          //   email: json.email
-          // });
+          this.setState({
+            firstName: json.firstName,
+            lastName: json.lastName,
+            email: json.email
+          });
         }
       });
   }
