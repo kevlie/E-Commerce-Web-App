@@ -22,6 +22,11 @@ const OrderSchema = new mongoose.Schema({
             },
             message: "There needs to be at least one item per order."
         }
+    },
+    fulfilled: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 
