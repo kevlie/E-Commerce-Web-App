@@ -2,6 +2,7 @@ const log = console.log;
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/users");
+const orderRouter = require("./routes/orders");
 const { mongoose } = require("./db/mongoose");
 const session = require("express-session");
 const cors = require("cors");
@@ -29,6 +30,7 @@ app.use(
 //   next();
 // });
 app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
 // Express server listening...
 const port = process.env.PORT || 3001;
