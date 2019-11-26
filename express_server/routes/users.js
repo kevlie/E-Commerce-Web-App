@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { User } = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 // const redirectLogin = (req, res, next) => {
 //   if (!req.session.user) {
@@ -80,4 +81,45 @@ router.get("/profile", (req, res) => {
   //   console.log(req.session.email);
 });
 
+const hashPassword = password => {
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, (err, hash) => {
+      console.log(hash);
+      return hash;
+    });
+  });
+};
+router.patch("/editProfile", (req, res) => {
+  const id = req.session.user;
+  //   let pass = req.body.password;
+  //   bcrypt.genSalt(10, (err, salt) => {
+  //     bcrypt.hash(req.body.password, salt, (err, hash) => {
+  //       req.body.password = hash;
+  //       console.log(hash);
+  //     });
+  //   });
+  //   let pass = hashPassword(req.body.password);
+  User.update(
+    { _id: id },
+    {
+      $set: {
+        email: req.body.email,
+        // password: pass,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      }
+    }
+  )
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
 module.exports = router;

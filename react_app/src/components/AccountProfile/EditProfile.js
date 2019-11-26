@@ -5,18 +5,45 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Profile.css";
+
 // import accountData from "../AccountData.js";
-import sign_in from "../../redux/actions.js";
+// import sign_in from "../../redux/actions.js";
 
 class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "default",
-      password: "default",
+      // password: "default",
       first_name: "default",
-      last_name: "default"
+      last_name: "default",
+      fail: false
     };
+  }
+  handleUpdate() {
+    fetch("http://localhost:3001/api/users/editProfile", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email: this.state.email,
+        // password: this.state.password,
+        firstName: this.state.first_name,
+        lastName: this.state.last_name
+      })
+    }).then(res => {
+      if (res.status === 500) {
+        this.setState({
+          fail: true
+        });
+      } else {
+        // this.props.dispatch(sign_in());
+        this.props.history.push("/");
+      }
+    });
   }
   render() {
     return (
@@ -68,7 +95,7 @@ class EditProfile extends Component {
               }}
             />
 
-            <TextField
+            {/* <TextField
               variant="outlined"
               fullWidth
               margin="normal"
@@ -80,7 +107,7 @@ class EditProfile extends Component {
                   password: e.target.value.toString()
                 });
               }}
-            />
+            /> */}
 
             <Button
               fullWidth
@@ -88,6 +115,7 @@ class EditProfile extends Component {
               color="primary"
               className="submit"
               onClick={e => {
+                this.handleUpdate();
                 //replace with database calls later
               }}
             >
