@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
@@ -14,7 +14,7 @@ class EditProfile extends Component {
     super(props);
     this.state = {
       email: "default",
-      // password: "default",
+      password: "default",
       first_name: "default",
       last_name: "default",
       fail: false
@@ -30,7 +30,7 @@ class EditProfile extends Component {
       credentials: "include",
       body: JSON.stringify({
         email: this.state.email,
-        // password: this.state.password,
+        password: this.state.password,
         firstName: this.state.first_name,
         lastName: this.state.last_name
       })
@@ -95,7 +95,7 @@ class EditProfile extends Component {
               }}
             />
 
-            {/* <TextField
+            <TextField
               variant="outlined"
               fullWidth
               margin="normal"
@@ -107,7 +107,7 @@ class EditProfile extends Component {
                   password: e.target.value.toString()
                 });
               }}
-            /> */}
+            />
 
             <Button
               fullWidth

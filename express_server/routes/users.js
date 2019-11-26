@@ -98,35 +98,46 @@ const hashPassword = password => {
 };
 router.patch("/editProfile", (req, res) => {
   const id = req.session.user;
-  //   let pass = req.body.password;
-  //   bcrypt.genSalt(10, (err, salt) => {
-  //     bcrypt.hash(req.body.password, salt, (err, hash) => {
-  //       req.body.password = hash;
-  //       console.log(hash);
-  //     });
-  //   });
-  //   let pass = hashPassword(req.body.password);
-  User.update(
-    { _id: id },
-    {
-      $set: {
-        email: req.body.email,
-        // password: pass,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
+  User.findById(id).then(user => {
+    if (!user) {
+      return res.status(404).send();
+    } else {
+      for (let param in req.body) {
+        user[param] = req.body[param];
       }
+      user.save().then(
+        result => {
+          console.log(user.password);
+          res.send(result);
+        },
+        error => {
+          res.status(400).send(error);
+        }
+      );
     }
-  )
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json(result);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
+  });
+
+  //   User.update(
+  //     { _id: id },
+  //     {
+  //       $set: {
+  //         email: req.body.email,
+  //         // password: pass,
+  //         firstName: req.body.firstName,
+  //         lastName: req.body.lastName
+  //       }
+  //     }
+  //   )
+  //     .exec()
+  //     .then(result => {
+  //       console.log(result);
+  //       res.status(200).json(result);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json({
+  //         error: err
+  //       });
+  //     });
 });
 module.exports = router;
