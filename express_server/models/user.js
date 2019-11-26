@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   }
 });
 

@@ -15,6 +15,7 @@ class Register extends Component {
       password: "default",
       firstName: "default",
       lastName: "default",
+      admin: "default",
       fail: false
     };
   }
@@ -31,7 +32,8 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         firstName: this.state.firstName,
-        lastName: this.state.lastName
+        lastName: this.state.lastName,
+        admin: this.state.admin
       })
     }).then(res => {
       if (res.status === 200) {
@@ -115,6 +117,21 @@ class Register extends Component {
                   onChange={e => {
                     this.setState({
                       password: e.target.value.toString()
+                    });
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  placeholder="Input admin to register as an admin"
+                  variant="outlined"
+                  fullWidth
+                  name="admin"
+                  label="Admin"
+                  id="admin"
+                  onChange={e => {
+                    this.setState({
+                      admin: e.target.value.toString()
                     });
                   }}
                 />

@@ -41,6 +41,10 @@ router.post("/register", (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName
   });
+  //   check to see if user is an admin
+  if (req.body.admin === "admin") {
+    user.isAdmin = true;
+  }
   // Save student to the database
   user.save().then(
     result => {
@@ -66,20 +70,21 @@ router.get("/profile", (req, res) => {
         error: err
       });
     });
-  //   const id = req.params.id;
-  //   User.find()
-  //     .exec()
-  //     .then(docs => {
-  //       //   console.log(docs);
-  //       res.status(200).json(docs);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json({ error: err });
-  //     });
-  //   console.log(req.session.id);
-  //   console.log(req.session.email);
 });
+
+//   const id = req.params.id;
+//   User.find()
+//     .exec()
+//     .then(docs => {
+//       //   console.log(docs);
+//       res.status(200).json(docs);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ error: err });
+//     });
+//   console.log(req.session.id);
+//   console.log(req.session.email);
 
 const hashPassword = password => {
   bcrypt.genSalt(10, (err, salt) => {

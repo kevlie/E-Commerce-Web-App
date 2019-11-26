@@ -16,6 +16,30 @@ const mapStateToProps = state => {
 };
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "default",
+      isAdmin: false
+    };
+  }
+  handleLogin() {
+    fetch("http://localhost:3001/api/users/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json === null) {
+          // this.props.history.push("/login");
+        } else {
+          this.setState({
+            firstName: json.firstName,
+            isAdmin: json.isAdmin
+          });
+        }
+      });
+  }
   handleLogout() {
     fetch("http://localhost:3001/api/users/logout", {
       method: "get",
@@ -34,6 +58,7 @@ class NavBar extends Component {
   }
 
   render() {
+    this.handleLogin();
     return (
       <AppBar
         position="sticky"
@@ -64,12 +89,17 @@ class NavBar extends Component {
               </Button>
             ) : (
               <div>
+                Signed in as {this.state.firstName}
                 <Button
                   variant="outlined"
                   style={{ marginRight: 20 }}
                   color="primary"
                   onClick={() => {
-                    this.props.history.push("/profile");
+                    if (this.state.isAdmin) {
+                      this.props.history.push("/adminPage");
+                    } else {
+                      this.props.history.push("/profile");
+                    }
                   }}
                 >
                   Profile

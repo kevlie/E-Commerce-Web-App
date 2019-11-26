@@ -24,7 +24,10 @@ app.use(
     }
   })
 );
-
+// app.use(function(req, res, next) {
+//   res.locals.user = req.user;
+//   next();
+// });
 app.use("/api/users", userRouter);
 
 // Express server listening...
