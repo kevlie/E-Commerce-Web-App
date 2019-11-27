@@ -9,8 +9,10 @@ import Register from "./components/Register/Register";
 import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent";
 import AccountProfile from "./components/AccountProfile/AccountProfile";
 import EditProfile from "./components/AccountProfile/EditProfile";
-import AdminPage from "./components/AdminPage/AdminPage"
-import Details from "./components/Details/Details"
+import AdminPage from "./components/AdminPage/AdminPage";
+import Details from "./components/Details/Details";
+import "./App.css";
+
 function App() {
   return (
     <div>

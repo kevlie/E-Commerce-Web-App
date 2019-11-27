@@ -119,6 +119,21 @@ class Register extends Component {
                   }}
                 />
               </Grid>
+              {/* <Grid item xs={12}>
+                <TextField
+                  placeholder="Input admin to register as an admin"
+                  variant="outlined"
+                  fullWidth
+                  name="admin"
+                  label="Admin"
+                  id="admin"
+                  onChange={e => {
+                    this.setState({
+                      admin: e.target.value.toString()
+                    });
+                  }}
+                />
+              </Grid> */}
               <Grid item xs={12}></Grid>
             </Grid>
             <Button

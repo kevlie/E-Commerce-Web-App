@@ -5,8 +5,9 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Profile.css";
+
 // import accountData from "../AccountData.js";
-import sign_in from "../../redux/actions.js";
+// import sign_in from "../../redux/actions.js";
 
 class EditProfile extends Component {
   constructor(props) {
@@ -15,16 +16,62 @@ class EditProfile extends Component {
       email: "default",
       password: "default",
       first_name: "default",
-      last_name: "default"
+      last_name: "default",
+      fail: false
     };
+  }
+  componentDidMount() {
+    fetch("http://localhost:3001/api/users/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json === null) {
+          this.props.history.push("/login");
+        } else {
+          this.setState({
+            first_name: json.firstName,
+            last_name: json.lastName,
+            email: json.email,
+            password: json.password
+          });
+        }
+      });
+  }
+  handleUpdate() {
+    fetch("http://localhost:3001/api/users/editProfile", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+        firstName: this.state.first_name,
+        lastName: this.state.last_name
+      })
+    }).then(res => {
+      if (res.status === 500) {
+        this.setState({
+          fail: true
+        });
+      } else {
+        // this.props.dispatch(sign_in());
+        this.props.history.push("/");
+      }
+    });
   }
   render() {
     return (
       <Container component="main" maxWidth="xs">
         <div className="title">
-          <Typography component="h1" variant="h5">
+          {/* <Typography component="h1" variant="h5">
             Edit your Profile
-          </Typography>
+          </Typography> */}
+          <h1>Edit your Profile</h1>
           <form className="form" noValidate>
             <TextField
               variant="outlined"
@@ -73,9 +120,9 @@ class EditProfile extends Component {
               fullWidth
               margin="normal"
               name="password"
+              type="password"
               id="password"
               label="Password"
-              value={this.state.password}
               onChange={e => {
                 this.setState({
                   password: e.target.value.toString()
@@ -89,6 +136,7 @@ class EditProfile extends Component {
               color="primary"
               className="submit"
               onClick={e => {
+                this.handleUpdate();
                 //replace with database calls later
               }}
             >

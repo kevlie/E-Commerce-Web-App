@@ -37,25 +37,30 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-    }).then(res => {
-      if (res.status === 400) {
-        this.setState({
-          fail: true
-        });
-      } else {
-        this.props.dispatch(sign_in());
-        this.props.history.push("/");
-      }
-    });
+    })
+      .then(res => {
+        if (res.status === 400) {
+          this.setState({
+            fail: true
+          });
+        } else {
+          this.props.dispatch(sign_in());
+          this.props.history.push("/");
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
   render() {
     return (
       <Container component="main" maxWidth="xs">
         <div className="paper">
-          <Typography component="h1" variant="h5">
+          {/* <Typography component="h1" variant="h5" font='"Product Sans", serif'>
             Sign in
-          </Typography>
+          </Typography> */}
+          <h1>Sign in</h1>
           <form className="form" noValidate>
             <TextField
               variant="outlined"

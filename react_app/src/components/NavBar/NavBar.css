@@ -5,6 +5,7 @@
 }
 
 .right-navbar {
+  color: black;
   display: flex;
   width: 150px;
   align-items: center;
