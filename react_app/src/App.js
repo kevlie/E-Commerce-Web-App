@@ -27,7 +27,7 @@ function App() {
             <Route path="/watches" component={WatchProducts} />
             <Route path="/checkout" component={CheckoutComponent} />
             <Route path="/profile/:profileId" component={AccountProfile} />
-            <Route path="/editProfile" component={EditProfile} />
+            <Route path="/editProfile/:profileId" component={EditProfile} />
             <Route path="/adminPage" component={AdminPage} />
             <Route path="/details" component={Details} />
           </Switch>

@@ -21,10 +21,13 @@ class EditProfile extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3001/api/users/profile", {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `http://localhost:3001/api/users/profile/${this.props.match.params.profileId}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => response.json())
       .then(json => {
         if (json === null) {

@@ -5,22 +5,22 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "semantic-ui-css/semantic.min.css";
 
-import { Grid, Dimmer, Loader, Icon, Header, Message } from "semantic-ui-react";
+import { Grid, Icon, Header, Message } from "semantic-ui-react";
 import "./Profile.css";
 
 class AccountProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       firstName: "default",
       lastName: "default",
-      email: "default",
-      password: "default"
+      email: "default"
     };
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.profileId);
+    // console.log(this.props.match.params.profileId);
     fetch(
       `http://localhost:3001/api/users/profile/${this.props.match.params.profileId}`,
       {
@@ -34,6 +34,7 @@ class AccountProfile extends Component {
           this.props.history.push("/login");
         } else {
           this.setState({
+            id: json._id,
             firstName: json.firstName,
             lastName: json.lastName,
             email: json.email
@@ -64,7 +65,7 @@ class AccountProfile extends Component {
             <Message
               className="message"
               onClick={() => {
-                this.props.history.push("/editProfile");
+                this.props.history.push(`/editProfile/${this.state.id}`);
               }}
             >
               Click here to edit your profile
