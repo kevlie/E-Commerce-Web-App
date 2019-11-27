@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Register.css";
 
 class Register extends Component {
@@ -15,7 +15,6 @@ class Register extends Component {
       password: "default",
       firstName: "default",
       lastName: "default",
-      admin: "default",
       fail: false
     };
   }
@@ -32,8 +31,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        admin: this.state.admin
+        lastName: this.state.lastName
       })
     }).then(res => {
       if (res.status === 200) {
@@ -121,7 +119,7 @@ class Register extends Component {
                   }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   placeholder="Input admin to register as an admin"
                   variant="outlined"
@@ -135,7 +133,7 @@ class Register extends Component {
                     });
                   }}
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}></Grid>
             </Grid>
             <Button

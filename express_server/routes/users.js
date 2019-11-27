@@ -42,9 +42,9 @@ router.post("/register", (req, res) => {
     lastName: req.body.lastName
   });
   //   check to see if user is an admin
-  if (req.body.admin === "admin") {
-    user.isAdmin = true;
-  }
+  //   if (req.body.admin === "admin") {
+  //     user.isAdmin = true;
+  //   }
   // Save student to the database
   user.save().then(
     result => {
@@ -84,18 +84,8 @@ router.get("/adminPage", (req, res) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
-  //   console.log(req.session.id);
-  //   console.log(req.session.email);
 });
 
-const hashPassword = password => {
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (err, hash) => {
-      console.log(hash);
-      return hash;
-    });
-  });
-};
 router.patch("/editProfile", (req, res) => {
   const id = req.session.user;
   User.findById(id).then(user => {
@@ -107,7 +97,7 @@ router.patch("/editProfile", (req, res) => {
       }
       user.save().then(
         result => {
-          console.log(user.password);
+          //   console.log(user.password);
           res.send(result);
         },
         error => {
@@ -116,28 +106,5 @@ router.patch("/editProfile", (req, res) => {
       );
     }
   });
-
-  //   User.update(
-  //     { _id: id },
-  //     {
-  //       $set: {
-  //         email: req.body.email,
-  //         // password: pass,
-  //         firstName: req.body.firstName,
-  //         lastName: req.body.lastName
-  //       }
-  //     }
-  //   )
-  //     .exec()
-  //     .then(result => {
-  //       console.log(result);
-  //       res.status(200).json(result);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json({
-  //         error: err
-  //       });
-  //     });
 });
 module.exports = router;

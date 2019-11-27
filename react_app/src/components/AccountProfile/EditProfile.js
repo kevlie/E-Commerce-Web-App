@@ -20,6 +20,25 @@ class EditProfile extends Component {
       fail: false
     };
   }
+  componentDidMount() {
+    fetch("http://localhost:3001/api/users/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json === null) {
+          // this.props.history.push("/login");
+        } else {
+          this.setState({
+            first_name: json.firstName,
+            last_name: json.lastName,
+            email: json.email,
+            password: json.password
+          });
+        }
+      });
+  }
   handleUpdate() {
     fetch("http://localhost:3001/api/users/editProfile", {
       method: "PATCH",
@@ -100,6 +119,7 @@ class EditProfile extends Component {
               fullWidth
               margin="normal"
               name="password"
+              type="password"
               id="password"
               label="Password"
               onChange={e => {
