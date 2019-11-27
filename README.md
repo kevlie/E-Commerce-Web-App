@@ -14,9 +14,9 @@ This is an ecommerce website is intended to provide customers with the ability t
 
 ## Administrator
 
-* If you want to login as administrator:
 ### Admin username is : admin
 ### Password is : csc309
+* If you want to login as administrator:
   - Admin can view the recent oders record from all users
   - Admin can acess to the profiles of users and edict the detials of them
   - Admin can invoke user account 
