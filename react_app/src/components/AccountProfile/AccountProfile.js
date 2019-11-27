@@ -21,13 +21,10 @@ class AccountProfile extends Component {
 
   componentDidMount() {
     // console.log(this.props.match.params.profileId);
-    fetch(
-      `http://localhost:3001/api/users/profile/${this.props.match.params.profileId}`,
-      {
-        method: "GET",
-        credentials: "include"
-      }
-    )
+    fetch("http://localhost:3001/api/users/user", {
+      method: "GET",
+      credentials: "include"
+    })
       .then(response => response.json())
       .then(json => {
         if (json === null) {
