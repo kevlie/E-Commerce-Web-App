@@ -48,13 +48,22 @@ router.post("/register", (req, res) => {
   // Save student to the database
   user.save().then(
     result => {
-      res.send(result);
-      console.log(result);
+      res.status(200).send(result);
     },
     error => {
       res.status(400).send(error);
     }
   );
+});
+
+router.get("/isLoggedIn", (req, res) => {
+  if (req.session.user) {
+    res.status(200).end();
+  }
+  else{
+    res.status(404).end();
+  }
+  
 });
 
 router.get("/profile", (req, res) => {

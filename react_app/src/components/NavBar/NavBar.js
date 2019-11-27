@@ -62,6 +62,29 @@ class NavBar extends Component {
     });
   }
 
+  handleIsLoggedIn() {
+    fetch("http://localhost:3001/api/users/isLoggedIn", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    })
+      .then(res => {
+        if (res.status === 200) {
+          this.props.dispatch(sign_in())
+        }
+      })
+      .catch(() => {
+        console.log("error")
+      });
+  }
+
+  componentWillMount(){
+    this.handleIsLoggedIn()
+  }
+
   render() {
     let { anchorEl } = this.state;
     this.handleLogin();
