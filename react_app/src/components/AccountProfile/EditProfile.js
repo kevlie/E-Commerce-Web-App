@@ -28,7 +28,7 @@ class EditProfile extends Component {
       .then(response => response.json())
       .then(json => {
         if (json === null) {
-          // this.props.history.push("/login");
+          this.props.history.push("/login");
         } else {
           this.setState({
             first_name: json.firstName,
@@ -68,9 +68,10 @@ class EditProfile extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <div className="title">
-          <Typography component="h1" variant="h5">
+          {/* <Typography component="h1" variant="h5">
             Edit your Profile
-          </Typography>
+          </Typography> */}
+          <h1>Edit your Profile</h1>
           <form className="form" noValidate>
             <TextField
               variant="outlined"
