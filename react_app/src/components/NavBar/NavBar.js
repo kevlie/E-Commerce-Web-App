@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./NavBar.css";
 import Button from "@material-ui/core/Button";
-import logo from "../../images/logo.png";
+import logo from "../../images/newshop.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Person from "@material-ui/icons/PersonOutline";

@@ -72,16 +72,14 @@ router.get("/profile", (req, res) => {
     });
 });
 
-router.get("/adminPage", (req, res) => {
+router.get("/users", (req, res) => {
   const id = req.params.id;
   User.find()
     .exec()
     .then(docs => {
-      //   console.log(docs);
       res.status(200).json(docs);
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json({ error: err });
     });
 });
