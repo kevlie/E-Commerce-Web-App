@@ -88,7 +88,7 @@ class Details extends Component {
             fontSize: 24
            }}
         >
-           Product Description
+           Saler Description
            </div>
            <div
            style={{
