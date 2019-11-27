@@ -14,8 +14,7 @@ router.get("/users", (req, res) => {
 });
 
 router.delete("/:userId", (req, res) => {
-    console.log(req.params.userId)
-    User.find()
+    User.findByIdAndDelete(req.params.userId)
       .exec()
       .then(docs => {
         res.status(200).json(docs);
