@@ -1,8 +1,10 @@
 const log = console.log;
 const express = require("express");
 const app = express();
-const userRouter = require("./routes/users");
+const profileRouter = require("./routes/profile");
 const orderRouter = require("./routes/orders");
+const adminRouter = require("./routes/admin");
+const authRouter = require("./routes/auth")
 const { mongoose } = require("./db/mongoose");
 const session = require("express-session");
 const cors = require("cors");
@@ -25,12 +27,11 @@ app.use(
     }
   })
 );
-// app.use(function(req, res, next) {
-//   res.locals.user = req.user;
-//   next();
-// });
-app.use("/api/users", userRouter);
+
+app.use("/api/auth", authRouter)
+app.use("/api/profile", profileRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/admin", adminRouter);
 
 // Express server listening...
 const port = process.env.PORT || 3001;

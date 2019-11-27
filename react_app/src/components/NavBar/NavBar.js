@@ -30,7 +30,7 @@ class NavBar extends Component {
     };
   }
   handleLogin() {
-    fetch("http://localhost:3001/api/users/user", {
+    fetch("http://localhost:3001/api/profile/", {
       method: "GET",
       credentials: "include"
     })
@@ -48,7 +48,7 @@ class NavBar extends Component {
       });
   }
   handleLogout() {
-    fetch("http://localhost:3001/api/users/logout", {
+    fetch("http://localhost:3001/api/auth/logout", {
       method: "get",
       headers: {
         Accept: "application/json",
@@ -65,7 +65,7 @@ class NavBar extends Component {
   }
 
   handleIsLoggedIn() {
-    fetch("http://localhost:3001/api/users/isLoggedIn", {
+    fetch("http://localhost:3001/api/auth/isLoggedIn", {
       method: "get",
       headers: {
         Accept: "application/json",

@@ -22,7 +22,7 @@ class EditProfile extends Component {
   }
   componentDidMount() {
     fetch(
-      `http://localhost:3001/api/users/profile/${this.props.match.params.profileId}`,
+      `http://localhost:3001/api/profile`,
       {
         method: "GET",
         credentials: "include"
@@ -43,7 +43,7 @@ class EditProfile extends Component {
       });
   }
   handleUpdate() {
-    fetch("http://localhost:3001/api/users/editProfile", {
+    fetch("http://localhost:3001/api/profile/edit", {
       method: "PATCH",
       headers: {
         Accept: "application/json",

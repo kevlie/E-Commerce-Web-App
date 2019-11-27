@@ -20,7 +20,7 @@ class Register extends Component {
   }
 
   handleRegister() {
-    fetch("http://localhost:3001/api/users/register", {
+    fetch("http://localhost:3001/api/auth/register", {
       method: "post",
       headers: {
         Accept: "application/json",

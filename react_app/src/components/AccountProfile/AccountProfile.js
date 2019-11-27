@@ -21,7 +21,7 @@ class AccountProfile extends Component {
 
   componentDidMount() {
     // console.log(this.props.match.params.profileId);
-    fetch("http://localhost:3001/api/users/user", {
+    fetch("http://localhost:3001/api/profile", {
       method: "GET",
       credentials: "include"
     })

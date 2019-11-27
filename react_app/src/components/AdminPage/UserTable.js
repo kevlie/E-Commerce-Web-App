@@ -12,7 +12,7 @@ class UserTable extends React.Component {
   }
 
   componentWillMount() {
-    fetch("http://localhost:3001/api/users/users", {
+    fetch("http://localhost:3001/api/admin/users", {
       method: "GET",
       credentials: "include"
     })
