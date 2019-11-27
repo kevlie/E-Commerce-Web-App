@@ -20,10 +20,14 @@ class AccountProfile extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/users/profile", {
-      method: "GET",
-      credentials: "include"
-    })
+    console.log(this.props.match.params.profileId);
+    fetch(
+      `http://localhost:3001/api/users/profile/${this.props.match.params.profileId}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => response.json())
       .then(json => {
         if (json === null) {
@@ -49,24 +53,13 @@ class AccountProfile extends Component {
           verticalAlign="middle"
         >
           <Grid.Column style={{ maxWidth: 450, marginTop: "25vh" }}>
-            <Header as="h2" style={{ color: "#29ABE2" }} textAlign="left">
+            <Header as="h2" style={{ color: "#5e35b1" }} textAlign="left">
               <Icon name="user" /> {this.state.firstName || ""}{" "}
               {this.state.lastName}
             </Header>
             <Header as="h2" style={{ color: "#29ABE2" }} textAlign="left">
               <Icon name="mail" /> {this.state.email}
             </Header>
-            {/* <Button
-              type="submit"
-              fullWidth
-              color="primary"
-              className="submit"
-              onClick={() => {
-                this.props.history.push("/editProfile");
-              }}
-            >
-              Edit My Account Profile
-            </Button> */}
 
             <Message
               className="message"

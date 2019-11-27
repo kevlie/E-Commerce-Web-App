@@ -57,7 +57,21 @@ router.post("/register", (req, res) => {
   );
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile/:profileId", (req, res) => {
+  User.findById(req.params.profileId)
+    .exec()
+    .then(docs => {
+      res.status(200).json(docs);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
+
+router.get("/user", (req, res) => {
   const id = req.session.user;
   User.findById(id)
     .exec()
@@ -73,7 +87,6 @@ router.get("/profile", (req, res) => {
 });
 
 router.get("/users", (req, res) => {
-  const id = req.params.id;
   User.find()
     .exec()
     .then(docs => {

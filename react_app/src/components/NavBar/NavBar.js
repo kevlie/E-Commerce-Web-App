@@ -23,13 +23,14 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       anchorEl: null,
       firstName: "default",
       isAdmin: false
     };
   }
   handleLogin() {
-    fetch("http://localhost:3001/api/users/profile", {
+    fetch("http://localhost:3001/api/users/user", {
       method: "GET",
       credentials: "include"
     })
@@ -39,6 +40,7 @@ class NavBar extends Component {
           // this.props.history.push("/login");
         } else {
           this.setState({
+            id: json._id,
             firstName: json.firstName,
             isAdmin: json.isAdmin
           });
@@ -98,7 +100,7 @@ class NavBar extends Component {
               </Button>
             ) : (
               <div>
-                {/* Signed in as {this.state.firstName} */}
+                Signed in as {this.state.firstName}
                 <Avatar
                   onClick={event => {
                     this.setState({ anchorEl: event.currentTarget });
@@ -107,30 +109,6 @@ class NavBar extends Component {
                 >
                   <Person />
                 </Avatar>
-                {/* <Button
-                  variant="outlined"
-                  style={{ marginRight: 20 }}
-                  color="primary"
-                  onClick={() => {
-                    if (this.state.isAdmin) {
-                      this.props.history.push("/adminPage");
-                    } else {
-                      this.props.history.push("/profile");
-                    }
-                  }}
-                >
-                  Profile
-                </Button>
-                <Button
-                  variant="outlined"
-                  style={{ marginRight: 20 }}
-                  color="primary"
-                  onClick={() => {
-                    this.handleLogout();
-                  }}
-                >
-                  Log out
-                </Button> */}
               </div>
             )}
             <Menu
@@ -141,13 +119,12 @@ class NavBar extends Component {
               }}
             >
               <MenuItem
-                // style={{ backgroundColor: "#3f51b5" }}
                 onClick={() => {
                   this.setState({ anchorEl: null });
                   if (this.state.isAdmin) {
                     this.props.history.push("/adminPage");
                   } else {
-                    this.props.history.push("/profile");
+                    this.props.history.push(`/profile/${this.state.id}`);
                   }
                 }}
               >
