@@ -11,3 +11,8 @@
 .submit {
   margin: 100px 100px 100px 100px;
 }
+
+.message {
+  cursor: pointer;
+  font-size: 40px;
+}
