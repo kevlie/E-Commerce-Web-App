@@ -1,13 +1,17 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./NavBar.css";
 import Button from "@material-ui/core/Button";
-import logo from "../../images/newshop.png";
+import logo from "../../images/logo.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {withRouter} from "react-router-dom";
+import Person from "@material-ui/icons/PersonOutline";
+import Avatar from "@material-ui/core/Avatar";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { withRouter } from "react-router-dom";
 import ShoppingCartBar from "../ShoppingCartBar/ShoppingCartBar";
-import {connect} from "react-redux";
-import {sign_in} from "../../redux/actions.js";
+import { connect } from "react-redux";
+import { sign_in } from "../../redux/actions.js";
 
 const mapStateToProps = state => {
   return {
@@ -19,6 +23,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      anchorEl: null,
       firstName: "default",
       isAdmin: false
     };
@@ -58,11 +63,15 @@ class NavBar extends Component {
   }
 
   render() {
+    let { anchorEl } = this.state;
     this.handleLogin();
     return (
       <AppBar
         position="sticky"
-        style={{ backgroundColor: "lightblue", padding: 10 }}
+        style={{
+          background: "linear-gradient(to right bottom, #2E3B55, #82ffa1)",
+          padding: 10
+        }}
       >
         <Toolbar>
           <div className="left-navbar">
@@ -79,7 +88,7 @@ class NavBar extends Component {
             {!this.props.isLoggedIn ? (
               <Button
                 variant="outlined"
-                style={{ marginRight: 20 }}
+                style={{ marginRight: 20, background: "#BAD1E7" }}
                 color="primary"
                 onClick={() => {
                   this.props.history.push("/login");
@@ -89,8 +98,16 @@ class NavBar extends Component {
               </Button>
             ) : (
               <div>
-                Signed in as {this.state.firstName}
-                <Button
+                {/* Signed in as {this.state.firstName} */}
+                <Avatar
+                  onClick={event => {
+                    this.setState({ anchorEl: event.currentTarget });
+                  }}
+                  style={{ backgroundColor: "#3f51b5", marginRight: 20 }}
+                >
+                  <Person />
+                </Avatar>
+                {/* <Button
                   variant="outlined"
                   style={{ marginRight: 20 }}
                   color="primary"
@@ -113,9 +130,38 @@ class NavBar extends Component {
                   }}
                 >
                   Log out
-                </Button>
+                </Button> */}
               </div>
             )}
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={() => {
+                this.setState({ anchorEl: null });
+              }}
+            >
+              <MenuItem
+                // style={{ backgroundColor: "#3f51b5" }}
+                onClick={() => {
+                  this.setState({ anchorEl: null });
+                  if (this.state.isAdmin) {
+                    this.props.history.push("/adminPage");
+                  } else {
+                    this.props.history.push("/profile");
+                  }
+                }}
+              >
+                Profile
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  this.setState({ anchorEl: null });
+                  this.handleLogout();
+                }}
+              >
+                Logout
+              </MenuItem>
+            </Menu>
           </div>
           <ShoppingCartBar />
         </Toolbar>
