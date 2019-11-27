@@ -10,6 +10,7 @@ import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent"
 import AccountProfile from "./components/AccountProfile/AccountProfile";
 import EditProfile from "./components/AccountProfile/EditProfile";
 import AdminPage from "./components/AdminPage/AdminPage";
+import Details from "./components/Details/Details";
 import "./App.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/profile" component={AccountProfile} />
             <Route path="/editProfile" component={EditProfile} />
             <Route path="/adminPage" component={AdminPage} />
+            <Route path="/details" component={Details} />
           </Switch>
         </div>
       </div>
