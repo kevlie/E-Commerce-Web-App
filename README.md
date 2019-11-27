@@ -3,9 +3,9 @@ This is an ecommerce website is intended to provide customers with the ability t
 
 ## Getting Started
 
-*Our porject is deployed online at: [url]
+* Our porject is deployed online at: [url]
 
-*Also you can run the web app by running following commands in the react_app and express_server directory:
+* Also you can run the web app by running following commands in the react_app and express_server directory:
 ### `npm install`
 ### `npm start`
   -The MongoDB is hosted on Atlas DB. 
