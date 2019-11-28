@@ -26,7 +26,7 @@ class Login extends Component {
   }
 
   handleLogin() {
-    fetch("http://localhost:3001/api/users/login", {
+    fetch("http://localhost:3001/api/auth/login", {
       method: "post",
       headers: {
         Accept: "application/json",

@@ -21,10 +21,13 @@ class EditProfile extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3001/api/users/user", {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `http://localhost:3001/api/profile`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => response.json())
       .then(json => {
         if (json === null) {
@@ -40,7 +43,7 @@ class EditProfile extends Component {
       });
   }
   handleUpdate() {
-    fetch("http://localhost:3001/api/users/editProfile", {
+    fetch("http://localhost:3001/api/profile/edit", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
