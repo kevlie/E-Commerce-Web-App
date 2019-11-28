@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
 import "semantic-ui-css/semantic.min.css";
-
+import { withRouter } from "react-router-dom";
 import { Grid, Icon, Header, Message } from "semantic-ui-react";
 import "./Profile.css";
 
@@ -15,8 +12,33 @@ class AccountProfile extends Component {
       id: null,
       firstName: "default",
       lastName: "default",
-      email: "default"
+      email: "default",
+      isPremium: false,
+      fail: false
     };
+  }
+  handlePremium() {
+    fetch("http://localhost:3001/api/profile/edit", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        isPremium: true
+      })
+    }).then(res => {
+      if (res.status === 500) {
+        this.setState({
+          fail: true
+        });
+      }
+      // else {
+      //   // this.props.dispatch(sign_in());
+      //   this.props.history.push("/");
+      // }
+    });
   }
 
   componentDidMount() {
@@ -34,13 +56,12 @@ class AccountProfile extends Component {
             id: json._id,
             firstName: json.firstName,
             lastName: json.lastName,
-            email: json.email
+            email: json.email,
+            isPremium: json.isPremium
           });
         }
       });
   }
-
-  //replace all infomations displaying with database calls later
 
   render() {
     return (
@@ -67,6 +88,20 @@ class AccountProfile extends Component {
             >
               Click here to edit your profile
             </Message>
+            <Button
+              onClick={() => {
+                this.setState({ isPremium: true });
+                this.handlePremium();
+              }}
+              style={{ width: 300 }}
+            >
+              Become a Premium Member
+            </Button>
+            {this.state.isPremium && (
+              <div style={{ color: "red" }}>
+                Thank you for being a premium member!
+              </div>
+            )}
           </Grid.Column>
         </Grid>
       </div>
@@ -74,4 +109,4 @@ class AccountProfile extends Component {
   }
 }
 
-export default AccountProfile;
+export default withRouter(AccountProfile);

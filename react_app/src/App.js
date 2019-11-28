@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import CheckoutComponent from "./components/CheckoutComponent/CheckoutComponent";
 import AccountProfile from "./components/AccountProfile/AccountProfile";
+import Profile from "./components/AccountProfile/Profile";
 import EditProfile from "./components/AccountProfile/EditProfile";
 import AdminPage from "./components/AdminPage/AdminPage";
 import Details from "./components/Details/Details";
@@ -26,7 +27,7 @@ function App() {
             <Route path="/shoes" component={ShoeProducts} />
             <Route path="/watches" component={WatchProducts} />
             <Route path="/checkout" component={CheckoutComponent} />
-            <Route path="/profile/:profileId" component={AccountProfile} />
+            <Route path="/profile/:profileId" component={Profile} />
             <Route path="/editProfile/:profileId" component={EditProfile} />
             <Route path="/adminPage" component={AdminPage} />
             <Route path="/details" component={Details} />
