@@ -75,16 +75,16 @@ class NavBar extends Component {
     })
       .then(res => {
         if (res.status === 200) {
-          this.props.dispatch(sign_in())
+          this.props.dispatch(sign_in());
         }
       })
       .catch(() => {
-        console.log("error")
+        console.log("error");
       });
   }
 
-  componentWillMount(){
-    this.handleIsLoggedIn()
+  componentWillMount() {
+    this.handleIsLoggedIn();
   }
 
   render() {
