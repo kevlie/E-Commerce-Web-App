@@ -10,7 +10,7 @@ router.get("", (req, res) => {
 });
 
 router.get("/:orderId", (req, res) => {
-    Order.findOne({orderId: req.params.orderId, userId: req.header("userId")}).exec().then(order => {
+    Order.findOne({id: req.params.orderId, userId: req.header("userId")}).exec().then(order => {
         if (order) {
             res.status(200).json(order);
         } else {
@@ -23,10 +23,10 @@ router.get("/:orderId", (req, res) => {
 
 router.post("", (req, res) => {
     let newId = uuidv4();
-    Order.findOne({orderId: newId}).exec().then(doc => {
+    Order.findOne({id: newId}).exec().then(doc => {
         if (!doc) {
             let newOrder = new Order({
-                orderId: newId,
+                id: newId,
                 userId: req.header("userId"),
                 items: req.body.items,
             });
@@ -44,11 +44,12 @@ router.post("", (req, res) => {
 
 router.patch("/:orderId", (req,res) => {
     let query = {
-        orderId: req.params.orderId,
+        id: req.params.orderId,
         userId: req.header("userId")
     };
     let updates = {
-        items: req.body.items
+        items: req.body.items,
+        lastUpdated: Date.now()
     };
     Order.findOne(query).exec().then(order => {
         if(order) {

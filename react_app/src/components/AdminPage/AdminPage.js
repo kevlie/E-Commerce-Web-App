@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Container from "@material-ui/core/Container";
 import UserTable from "./UserTable.js";
 

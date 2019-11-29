@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Button from "@material-ui/core/Button";
 import "semantic-ui-css/semantic.min.css";
-import { withRouter } from "react-router-dom";
-import { Grid, Icon, Header, Message } from "semantic-ui-react";
+import {withRouter} from "react-router-dom";
+import {Grid, Header, Icon, Message} from "semantic-ui-react";
 import "./Profile.css";
 
 class AccountProfile extends Component {
