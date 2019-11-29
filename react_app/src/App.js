@@ -11,6 +11,7 @@ import Profile from "./components/AccountProfile/Profile";
 import EditProfile from "./components/AccountProfile/EditProfile";
 import AdminPage from "./components/AdminPage/AdminPage";
 import Details from "./components/Details/Details";
+import AddProduct from "./components/AdminPage/AddProduct";
 import "./App.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/editProfile/:profileId" component={EditProfile} />
             <Route path="/adminPage" component={AdminPage} />
             <Route path="/details" component={Details} />
+            <Route path="/addProcuct" component={AddProduct} />
           </Switch>
         </div>
       </div>
