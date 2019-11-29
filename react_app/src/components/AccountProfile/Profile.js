@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     color: "#000"
   },
   tab: {
-    marginBottom: 80,
+    marginBottom: 40,
     fontSize: 18,
     fontFamily: "Righteous"
   }
