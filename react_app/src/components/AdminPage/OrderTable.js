@@ -141,8 +141,7 @@
 // }
 // export default OrderTable;
 
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, {Component} from "react";
 import MaterialTable from "material-table";
 
 class OrderTable extends Component {

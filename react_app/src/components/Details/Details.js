@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Container from "@material-ui/core/Container";
 
 // import { connect } from "react-redux";
-// import Item from "../Item/Item";
+// import OrderItem from "../OrderItem/OrderItem";
 
 class Details extends Component {
 

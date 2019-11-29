@@ -1,10 +1,9 @@
-
 const uuidv4 = require("uuid/v4");
-const { ItemSchema } = require("../models/item");
+const { OrderItemSchema } = require("../models/orderItem");
 const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema({
-    orderId :{
+    id :{
         type: String,
         required: true,
         default: uuidv4
@@ -14,7 +13,7 @@ const OrderSchema = new mongoose.Schema({
         required: true
     },
     items: {
-        type: [ItemSchema],
+        type: [OrderItemSchema],
         required: true,
         validate: {
             validator: function (v) {
@@ -27,6 +26,16 @@ const OrderSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
+    },
+    orderDate: {
+        type: Date,
+        required: true,
+        default: Date.now
+    },
+    lastUpdated: {
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
 
