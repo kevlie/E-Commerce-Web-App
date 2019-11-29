@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const uuidv4 = require("uuid/v4");
 
-const ItemSchema = new mongoose.Schema({
+const OrderItemSchema = new mongoose.Schema({
     itemId : {
         type: String,
         required: true,
@@ -10,12 +10,17 @@ const ItemSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true
+    },
+    currentUnitPrice: {
+        type: Number,
+        required: true
+    },
+    itemName : {
+        type: String,
+        required: true
     }
-});
-
-const Item = mongoose.model("Item", ItemSchema);
+}, {_id: false});
 
 module.exports = {
-    ItemSchema,
-    Item,
+    OrderItemSchema: OrderItemSchema
 };

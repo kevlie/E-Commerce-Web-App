@@ -4,7 +4,8 @@ const app = express();
 const profileRouter = require("./routes/profile");
 const orderRouter = require("./routes/orders");
 const adminRouter = require("./routes/admin");
-const authRouter = require("./routes/auth")
+const authRouter = require("./routes/auth");
+const inventoryRouter = require("./routes/inventory");
 const { mongoose } = require("./db/mongoose");
 const session = require("express-session");
 const cors = require("cors");
@@ -28,10 +29,11 @@ app.use(
   })
 );
 
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/inventory", inventoryRouter);
 
 // Express server listening...
 const port = process.env.PORT || 3001;
