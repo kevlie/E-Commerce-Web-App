@@ -44,11 +44,12 @@ router.get("", (req, res) => {
         console.log(req.query)
         if (req.query.ignoreImage && req.query.ignoreImage === 'true') {
             responseItems = items.map(item => {
-                let {image, ...rest} = item._doc;
-                return rest;
+                return returnItemWithEncodedImage(item._doc, false);
             })
         } else {
-            responseItems = items;
+            responseItems = items.map(item => {
+                return returnItemWithEncodedImage(item._doc, true);
+            })
         }
         res.status(200).json(responseItems);
     })
@@ -58,11 +59,10 @@ router.get("/:itemId", (req, res) => {
     Item.findOne({id: req.params.itemId}).exec().then(item => {
         if(item) {
             if (req.query.ignoreImage && req.query.ignoreImage === 'true') {
-                let {image, ...rest} = item._doc;
-                res.status(200).json(rest);
+                res.status(200).json(returnItemWithEncodedImage(item._doc, false));
 
             } else {
-                res.status(200).json(item);
+                res.status(200).json(returnItemWithEncodedImage(item._doc, true));
             }
         } else {
             res.status(404).json({
@@ -92,7 +92,7 @@ router.patch("/:itemId", (req, res)  => {
                 updates['priceHistory'] = oldPriceList
             }
             Item.findOneAndUpdate({id: req.params.itemId},updates,{new : true}).exec().then(updatedItem => {
-                res.status(202).json(updatedItem)
+                res.status(202).json(returnItemWithEncodedImage(updatedItem._doc, true))
             })
         } else {
             res.status(404).json({
@@ -101,5 +101,14 @@ router.patch("/:itemId", (req, res)  => {
         }
     })
 })
+
+function returnItemWithEncodedImage(item, containsImage) {
+    let {image, ...rest} = item;
+    if (containsImage) {
+        return { ...rest,image: Buffer.from(image).toString('base64')}
+    } else {
+        return rest;
+    }
+}
 
 module.exports = router;
