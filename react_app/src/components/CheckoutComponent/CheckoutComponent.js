@@ -105,13 +105,13 @@ class CheckoutComponent extends Component {
                       style={checkoutButtons}
                       onClick={() => this.props.dispatch(ADD_ITEM(item))}
                     >
-                      Add
+                      +1
                     </Button>
                     <Button
                       style={checkoutButtons}
                       onClick={() => this.props.dispatch(REMOVE_ITEM(item))}
                     >
-                      Remove
+                      -1
                     </Button>
                     <Button
                       style={checkoutButtons}
