@@ -31,7 +31,6 @@ function App() {
             <Route path="/editProfile/:profileId" component={EditProfile} />
             <Route path="/adminPage" component={AdminPage} />
             <Route path="/details" component={Details} />
-            <Route path="/addProduct" component={AddProduct} />
           </Switch>
         </div>
       </div>

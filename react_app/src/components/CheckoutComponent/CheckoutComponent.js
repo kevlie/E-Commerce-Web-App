@@ -4,7 +4,12 @@ import { connect } from "react-redux";
 import "./CheckoutComponent.css";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
-import { CLEAR_CART } from "../../redux/actions";
+import {
+  ADD_ITEM,
+  CLEAR_CART,
+  DELETE_ITEM,
+  REMOVE_ITEM
+} from "../../redux/actions";
 
 const mapStateToProps = state => {
   return {
@@ -84,6 +89,11 @@ class CheckoutComponent extends Component {
             <Fragment>
               <Card>
                 <img className="checkoutImages" src={item.image} alt="eet" />
+                {/* <img
+                  className="checkoutImages"
+                  src={<item className="image"></item>}
+                  alt="eet"
+                /> */}
                 <CardContent component="span">
                   <Typography variant="h5">{item.name}</Typography>
                   <span>Quantity: {item.count}</span>
@@ -91,9 +101,24 @@ class CheckoutComponent extends Component {
                     ${item.count * item.price}
                   </span>
                   <div>
-                    <Button style={checkoutButtons}>Add</Button>
-                    <Button style={checkoutButtons}>Remove</Button>
-                    <Button style={checkoutButtons}>Delete</Button>
+                    <Button
+                      style={checkoutButtons}
+                      onClick={() => this.props.dispatch(ADD_ITEM(item))}
+                    >
+                      Add
+                    </Button>
+                    <Button
+                      style={checkoutButtons}
+                      onClick={() => this.props.dispatch(REMOVE_ITEM(item))}
+                    >
+                      Remove
+                    </Button>
+                    <Button
+                      style={checkoutButtons}
+                      onClick={() => this.props.dispatch(DELETE_ITEM(item))}
+                    >
+                      Delete
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
