@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
-import watchData from "../WatchesData.js";
+// import watchData from "../WatchesData.js";
 
 class WatchProducts extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      watchCollection: watchData
+      watchCollection: []
     };
   }
 

@@ -83,11 +83,7 @@ class CheckoutComponent extends Component {
           return (
             <Fragment>
               <Card>
-                <img
-                  className="checkoutImages"
-                  src={item.imageUrls}
-                  alt="eet"
-                />
+                <img className="checkoutImages" src={item.image} alt="eet" />
                 <CardContent component="span">
                   <Typography variant="h5">{item.name}</Typography>
                   <span>Quantity: {item.count}</span>
