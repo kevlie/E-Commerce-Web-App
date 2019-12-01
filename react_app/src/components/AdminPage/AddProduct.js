@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 // import { connect } from "react-redux";
 // import Item from "../Item/Item";
 
-import SimplePopover from './Popover.js';
+
 
 class AddProduct extends Component {
 
@@ -55,9 +55,6 @@ class AddProduct extends Component {
         Add Product
        </Button>
 
-       <SimplePopover>
-
-       </SimplePopover>
        </div>
        </div>
         </Container>
