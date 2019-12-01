@@ -26,10 +26,10 @@ class ShoeProducts extends Component {
           // this.props.history.push("/login");
         } else {
           console.log(json);
-          this.setState({ shoeCollection: json });
-          this.state.shoeCollection.map(item => {
-            item["image"] = "data:image/jpg;base64, " + item["image"];
+          json.forEach(item => {
+            item["image"] ="data:image/jpg;base64, ".concat(item["image"]);
           });
+          this.setState({ shoeCollection: json });
           console.log(this.state.shoeCollection);
           // this.setState({
           //   isPremium: json.isPremium
@@ -42,6 +42,7 @@ class ShoeProducts extends Component {
     return (
       <div>
         {this.state.shoeCollection.map(item => {
+          console.log(item.image)
           return <Item key={item.id} item={item} />;
         })}
       </div>

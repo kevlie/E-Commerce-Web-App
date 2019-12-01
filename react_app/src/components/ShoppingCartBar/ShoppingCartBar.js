@@ -66,7 +66,7 @@ class ShoppingCartBar extends Component {
                                     <Fragment key={item.category + item.id}>
                                         <ListItem key={item.category + item.id}>
                                             <span className='shoppingCartImages'>
-                                                <img className="cartImg" src={item.imageUrls} alt={''}/>
+                                                <img className="cartImg" src={item.image} alt={''}/>
                                             </span>
                                             <span className='shoppingCartItemNames'>
                                                 <ListItemText primary={item.name}/>
