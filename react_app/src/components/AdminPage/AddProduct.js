@@ -3,9 +3,10 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
 // import { connect } from "react-redux";
 // import Item from "../Item/Item";
+
+import SimplePopover from './Popover.js';
 
 class AddProduct extends Component {
 
@@ -41,17 +42,22 @@ class AddProduct extends Component {
       id="standard-basic" label="Category" />
 
 
-      <TextField style={{ width: 115, marginTop: 15 , height: 50}} 
-      id="filled-basic" label="Price" variant="filled" />
+     <TextField style={{ width: 150, marginTop: 15 , height: 50}} 
+      id="standard-basic" label="Price" />   
 
-      <TextField style={{ width: 500, marginTop: 15 , height: 100}} 
-      id="outlined-basic" label="Descriptions" variant="outlined" />
-    <TextField style={{ width: 500, marginTop: 15 , height: 100}} 
-      id="outlined-basic" label="Image URL" variant="outlined" />
+     <TextField style={{ width: 500, marginTop: 15 , height: 50}} 
+      id="standard-basic" label="Descriptions" /> 
+    
+     <TextField style={{ width: 500, marginTop: 15 , height: 50}} 
+      id="standard-basic" label="Image URL" /> 
 
        <Button style={{ width: 200, marginTop: 15 , height: 50}} variant="contained" color="primary">
         Add Product
        </Button>
+
+       <SimplePopover>
+
+       </SimplePopover>
        </div>
        </div>
         </Container>
