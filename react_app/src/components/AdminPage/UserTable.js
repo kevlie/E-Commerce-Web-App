@@ -31,9 +31,7 @@ class UserTable extends React.Component {
           name: data[i].firstName,
           surname: data[i].lastName,
           email: data[i].email,
-          itemsBought: 0,
-          moneySpent: 0,
-          isPremium: "No"
+          isPremium: data[i].isPremium.toString()
         };
         ret.push(userData);
       }
@@ -47,8 +45,6 @@ class UserTable extends React.Component {
           { title: "Name", field: "name" },
           { title: "Surname", field: "surname" },
           { title: "Email", field: "email" },
-          { title: "Items Bought", field: "itemsBought", type: "numeric" },
-          { title: "Money Spent", field: "moneySpent", type: "numeric" },
           { title: "Premium", field: "isPremium" }
         ]}
         data={parseUserData(this.state.data)}
@@ -65,9 +61,8 @@ class UserTable extends React.Component {
               .then(json => {
                 if (json !== null) {
                   window.location.reload();
-                }
-                else{
-                  console.log("Deletion Failed")
+                } else {
+                  console.log("Deletion Failed");
                 }
               })
         }}
