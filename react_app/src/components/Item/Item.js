@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -7,8 +7,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 
 import "./item.css";
-import {ADD_ITEM} from "../../redux/actions";
-import {connect} from "react-redux";
+import { ADD_ITEM } from "../../redux/actions";
+import { connect } from "react-redux";
 
 class Item extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class Item extends Component {
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" image={this.props.item.imageUrls} />
+          <CardMedia className="cardMedia" image={this.props.item.image} />
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
             {!this.state.isPremium ? (
