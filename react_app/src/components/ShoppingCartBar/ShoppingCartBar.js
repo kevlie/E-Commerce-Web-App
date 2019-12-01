@@ -35,6 +35,15 @@ class ShoppingCartBar extends Component {
     this.props.dispatch(TOGGLE_CART_DRAWER());
   }
 
+  onClick() {
+    this.props.history.push("/checkout");
+    this.toggleDrawer();
+  }
+
+  toggleDrawer() {
+    this.props.dispatch(TOGGLE_CART_DRAWER());
+  }
+
   render() {
     console.log(this.props.cart);
     return (
@@ -75,11 +84,7 @@ class ShoppingCartBar extends Component {
                   <Fragment key={item.category + item.id}>
                     <ListItem key={item.category + item.id}>
                       <span className="shoppingCartImages">
-                        <img
-                          className="cartImg"
-                          src={item.imageUrls}
-                          alt={""}
-                        />
+                        <img className="cartImg" src={item.image} alt={""} />
                       </span>
                       <span className="shoppingCartItemNames">
                         <ListItemText primary={item.name} />
