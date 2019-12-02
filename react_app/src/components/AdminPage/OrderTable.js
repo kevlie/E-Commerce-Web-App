@@ -44,7 +44,7 @@ class OrderTable extends Component {
       <div style={{ maxWidth: "100%" }}>
         <MaterialTable
           columns={[
-            { title: "Order ID", field: "id" },
+            { title: "User ID", field: "id" },
             { title: "Name", field: "name" },
             { title: "Quantity", field: "quantity", type: "numeric" },
             { title: "Price", field: "price", type: "numeric" }
