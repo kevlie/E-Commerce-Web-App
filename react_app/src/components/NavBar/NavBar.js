@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./NavBar.css";
 import Button from "@material-ui/core/Button";
 import logo from "../../images/logo.png";
@@ -8,10 +8,10 @@ import Person from "@material-ui/icons/PersonOutline";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import ShoppingCartBar from "../ShoppingCartBar/ShoppingCartBar";
-import {connect} from "react-redux";
-import {sign_in} from "../../redux/actions.js";
+import { connect } from "react-redux";
+import { sign_in } from "../../redux/actions.js";
 
 const mapStateToProps = state => {
   return {
@@ -163,7 +163,11 @@ class NavBar extends Component {
               </MenuItem>
             </Menu>
           </div>
-          <ShoppingCartBar />
+          {this.props.isLoggedIn && !this.state.isAdmin ? (
+            <ShoppingCartBar />
+          ) : (
+            <div></div>
+          )}
         </Toolbar>
       </AppBar>
     );
