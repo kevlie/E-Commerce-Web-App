@@ -3,8 +3,8 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-// import { connect } from "react-redux";
-// import Item from "../Item/Item";
+import Input from "@material-ui/core/Input";
+import axios from "axios";
 
 class AddProduct extends Component {
   constructor(props) {
@@ -21,27 +21,29 @@ class AddProduct extends Component {
   }
 
   handleAddItem() {
-    // fetch("http://localhost:3001/api/inventory", {
-    //   method: "post",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json"
-    //   },
-    //   credentials: "include",
-    //   body: {
-    //     name: data.name,
-    //     category: this.state.category,
-    //     price: this.state.price,
-    //     description: this.state.description,
-    //     image: this.state.image
-    //   }
-    // }).then(res => {
-    //   if (res.status === 200) {
-    //     this.state.msg = "Item Added Successfully";
-    //   } else {
-    //     this.state.msg = "Item Added Unsuccessfully";
-    //   }
-    // });
+    console.log("in");
+    const data = new FormData();
+    data.append("name", this.state.name);
+    data.append("category", this.state.category);
+    data.append("price", this.state.price);
+    data.append("description", this.state.description);
+    data.append("itemImage", this.state.image);
+    axios
+      .post("http://localhost:3001/api/inventory", data)
+      .then(res => {
+        if (res.status == 200) {
+          this.setState({
+            msg: "Item Added Successfully"
+          });
+        } else {
+          this.setState({
+            msg: "Item Added Unsuccessfully"
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -106,10 +108,22 @@ class AddProduct extends Component {
               }}
             />
 
-            <TextField
-              style={{ width: 500, marginTop: 15, height: 50 }}
+            <p
+              style={{
+                marginTop: "25px"
+              }}
+            >
+              Choose An Image
+            </p>
+            <Input
+              style={{ width: 500, height: 30 }}
               id="standard-basic"
-              label="Image URL"
+              type="file"
+              onChange={e => {
+                this.setState({
+                  image: e.target.files[0]
+                });
+              }}
             />
 
             <Button
