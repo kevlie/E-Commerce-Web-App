@@ -99,20 +99,6 @@ class AddProduct extends Component {
             <TextField
               style={{ width: 500, marginTop: 15, height: 50 }}
               id="standard-basic"
-<<<<<<< HEAD
-              label="Image URL"
-            />
-
-            <Button
-              style={{ width: 200, marginTop: 15, height: 50 }}
-              variant="contained"
-              color="primary"
-            >
-              Add Product
-            </Button>
-
-            {/* <SimplePopover></SimplePopover> */}
-=======
               label="Description"
               onChange={e => {
                 this.setState({
@@ -149,8 +135,6 @@ class AddProduct extends Component {
             >
               Add Product
             </Button>
-            <p>{this.state.msg}</p>
->>>>>>> 9acf534515621dca7ee1932ef39d77e49ed025cb
           </div>
         </div>
       </Container>
