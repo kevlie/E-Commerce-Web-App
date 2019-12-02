@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
-// import watchData from "../WatchesData.js";
 
 class WatchProducts extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      watchCollection: []
+      watchCollection: [],
+      isPremium: false
     };
+  }
+  changePremiumPrice() {
+    if (this.state.isPremium) {
+      this.state.watchCollection.forEach(item => {
+        item["price"] = item["price"] * 0.5;
+      });
+    }
   }
 
   componentDidMount() {
@@ -33,9 +40,26 @@ class WatchProducts extends Component {
           console.log(this.state.watchCollection);
         }
       });
+
+    fetch("http://localhost:3001/api/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        // console.log(json);
+        if (json === null) {
+          // this.props.history.push("/login");
+        } else {
+          this.setState({
+            isPremium: json.isPremium
+          });
+        }
+      });
   }
 
   render() {
+    this.changePremiumPrice();
     return (
       <div>
         {this.state.watchCollection.map(item => {

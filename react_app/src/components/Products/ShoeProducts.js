@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
-// import shoeData from "../ShoesData.js";
 
 class ShoeProducts extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      shoeCollection: []
+      shoeCollection: [],
+      isPremium: false
     };
   }
+
+  changePremiumPrice() {
+    if (this.state.isPremium) {
+      this.state.shoeCollection.forEach(item => {
+        item["price"] = item["price"] * 0.5;
+      });
+    }
+  }
   componentDidMount() {
-    // console.log(this.props.match.params.profileId);
     fetch(
       "http://localhost:3001/api/inventory?category=Shoes&ignoreImage=false",
       {
@@ -23,7 +30,6 @@ class ShoeProducts extends Component {
       .then(json => {
         if (json === null) {
           console.log("none");
-          // this.props.history.push("/login");
         } else {
           console.log(json);
           json.forEach(item => {
@@ -31,18 +37,32 @@ class ShoeProducts extends Component {
           });
           this.setState({ shoeCollection: json });
           console.log(this.state.shoeCollection);
-          // this.setState({
-          //   isPremium: json.isPremium
-          // });
+        }
+      });
+
+    fetch("http://localhost:3001/api/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(json => {
+        // console.log(json);
+        if (json === null) {
+          // this.props.history.push("/login");
+        } else {
+          this.setState({
+            isPremium: json.isPremium
+          });
         }
       });
   }
 
   render() {
+    this.changePremiumPrice();
     return (
       <div>
         {this.state.shoeCollection.map(item => {
-          console.log(item.image);
+          // console.log(item.image);
           return <Item key={item.id} item={item} />;
         })}
       </div>
