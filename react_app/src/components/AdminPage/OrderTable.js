@@ -21,20 +21,19 @@ class OrderTable extends Component {
       .then(json => {
         let allItems = [];
         for (let i = 0; i < json.length; i++) {
-          allItems = allItems.concat(json[i].items);
-        }
-        const parsedAllItems = [];
-        for (let i = 0; i < allItems.length; i++) {
-          const itemData = {
-            id: allItems[i].itemId,
-            name: allItems[i].itemName,
-            quantity: allItems[i].quantity,
-            price: allItems[i].currentUnitPrice
-          };
-          parsedAllItems.push(itemData);
+          for (let j = 0; j < json[i].items.length; j++) {
+            const itemData = {
+              orderId: json[i].id,
+              itemId: json[i].items[j].itemId,
+              name: json[i].items[j].itemName,
+              quantity: json[i].items[j].quantity,
+              price: json[i].items[j].currentUnitPrice
+            };
+            allItems.push(itemData);
+          }
         }
         this.setState({
-          items: parsedAllItems
+          items: allItems
         });
       });
   }
@@ -44,7 +43,8 @@ class OrderTable extends Component {
       <div style={{ maxWidth: "100%" }}>
         <MaterialTable
           columns={[
-            { title: "User ID", field: "id" },
+            { title: "Order ID", field: "orderId" },
+            { title: "Item ID", field: "itemId" },
             { title: "Name", field: "name" },
             { title: "Quantity", field: "quantity", type: "numeric" },
             { title: "Price", field: "price", type: "numeric" }
