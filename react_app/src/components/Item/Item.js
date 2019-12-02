@@ -38,7 +38,7 @@ class Item extends Component {
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" image={this.props.item.image} />
+          <CardMedia className="cardMedia" src={this.props.item.image} />
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
             {!this.state.isPremium ? (

@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import AccountProfile from "./AccountProfile";
+import AccountOrders from "./AccountOrders";
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 
@@ -48,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    marginRight: 350,
+    marginRight: 320,
     color: "#000"
   },
   tab: {
@@ -57,8 +58,23 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Righteous"
   }
 }));
-
+// const getUserDetails = () => {
+//   fetch("http://localhost:3001/api/profile", {
+//     method: "GET",
+//     credentials: "include"
+//   })
+//     .then(response => response.json())
+//     .then(json => {
+//       if (json === null) {
+//         //   this.props.history.push("/login");
+//       } else {
+//         console.log(json._id)
+//         return json._id;
+//       }
+//     });
+// };
 export default function Profile() {
+  // let userId = getUserDetails();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -93,7 +109,7 @@ export default function Profile() {
         <AccountProfile />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Orders
+        <AccountOrders />
       </TabPanel>
     </div>
   );
