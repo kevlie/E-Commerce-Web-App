@@ -10,6 +10,7 @@ class OrderTable extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props.userId);
     fetch("http://localhost:3001/api/orders/", {
       method: "GET",
       credentials: "include",
