@@ -3,26 +3,12 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-<<<<<<< HEAD
-// import { connect } from "react-redux";
-// import Item from "../Item/Item";
-
-// import SimplePopover from './Popover.js';
-=======
 import Input from "@material-ui/core/Input";
 import axios from "axios";
->>>>>>> 9acf534515621dca7ee1932ef39d77e49ed025cb
 
 class AddProduct extends Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-
-    this.state = {
-      //get item and set state
-    };
-  }
-=======
 
     this.state = {
       name: "",
@@ -59,7 +45,6 @@ class AddProduct extends Component {
       });
   }
 
->>>>>>> 9acf534515621dca7ee1932ef39d77e49ed025cb
   render() {
     return (
       <Container component="main">
