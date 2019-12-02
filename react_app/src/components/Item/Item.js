@@ -40,10 +40,12 @@ class Item extends Component {
   //     });
   // }
   render() {
+      console.log("this is the image" + this.props.item.image)
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" src={this.props.item.image} />
+          <CardMedia className="cardMedia" image={this.props.item.image} />
+
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
             <div className="price">Price: ${this.props.item.price}</div>
