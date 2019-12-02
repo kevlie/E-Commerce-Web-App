@@ -31,7 +31,12 @@ class UserTable extends React.Component {
           name: data[i].firstName,
           surname: data[i].lastName,
           email: data[i].email,
-          isPremium: data[i].isPremium.toString()
+          isPremium:
+            data[i].isPremium.toString() === "true" ? (
+              <font color="blue">Yes</font>
+            ) : (
+              <font color="red">No</font>
+            )
         };
         ret.push(userData);
       }
@@ -41,7 +46,7 @@ class UserTable extends React.Component {
       <MaterialTable
         title="All Users"
         columns={[
-          { title: "ID", field: "id" },
+          { title: "User ID", field: "id" },
           { title: "Name", field: "name" },
           { title: "Surname", field: "surname" },
           { title: "Email", field: "email" },

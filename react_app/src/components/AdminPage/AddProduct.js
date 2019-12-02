@@ -5,6 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import axios from "axios";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 
 class AddProduct extends Component {
   constructor(props) {
@@ -16,7 +20,7 @@ class AddProduct extends Component {
       price: "",
       description: "",
       image: "",
-      msg: "test"
+      msg: ""
     };
   }
 
@@ -73,17 +77,21 @@ class AddProduct extends Component {
                 });
               }}
             />
-
-            <TextField
-              style={{ width: 300, marginTop: 15, height: 50 }}
-              id="standard-basic"
-              label="Category (Watches or Shoes)"
-              onChange={e => {
-                this.setState({
-                  category: e.target.value
-                });
-              }}
-            />
+            <FormControl style={{ width: 300, marginTop: 15, height: 50 }}>
+              <InputLabel id="category-dropdown">Category</InputLabel>
+              <Select
+                labelId="category-dropdown"
+                onChange={e => {
+                  this.setState({
+                    category: e.target.value
+                  });
+                }}
+                value={this.state.category}
+              >
+                <MenuItem value={"Watches"}>Watches</MenuItem>
+                <MenuItem value={"Shoes"}>Shoes</MenuItem>
+              </Select>
+            </FormControl>
 
             <TextField
               style={{ width: 150, marginTop: 15, height: 50 }}
@@ -112,7 +120,7 @@ class AddProduct extends Component {
                 marginTop: "25px"
               }}
             >
-              Choose An Image
+              Choose An Image:
             </p>
             <Input
               style={{ width: 500, height: 30 }}
@@ -135,6 +143,7 @@ class AddProduct extends Component {
             >
               Add Product
             </Button>
+            <p>{this.state.msg}</p>
           </div>
         </div>
       </Container>
