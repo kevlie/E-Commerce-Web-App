@@ -21,7 +21,6 @@ class AddProduct extends Component {
   }
 
   handleAddItem() {
-    console.log("in");
     const data = new FormData();
     data.append("name", this.state.name);
     data.append("category", this.state.category);
