@@ -70,7 +70,7 @@ class AccountOrders extends Component {
   };
   render() {
     this.getUserOrder();
-    // console.log(this.state);
+    console.log(this.state);
     return (
       //   <>
       //     {!this.state.fail ? (
@@ -97,26 +97,6 @@ class AccountOrders extends Component {
                           borderBottom: "1px solid #cecece"
                         }}
                       >
-                        {/* <div
-                                style={{
-                                  width: "80px",
-                                  height: "80px",
-                                  overflow: "hidden",
-                                  position: "relative"
-                                }}
-                                className="ImageContainer"
-                              >
-                                <img
-                                  style={{
-                                    maxWidth: "100%",
-                                    maxHeight: "100%",
-                                    position: "absolute",
-                                    left: "50%",
-                                    transform: "translateX(-50%)"
-                                  }}
-                                  src={item.product.productPic[0].img}
-                                />
-                              </div> */}
                         <div>
                           <p className="odtitle">{item.itemName}</p>
                           <div
