@@ -21,6 +21,11 @@ This is a website for online shopping intended to provide customers with the abi
   + Fill in the first name, last name, email and password fields and click ``Sign Up``. You will then be redirected back to the login page, where you can use your newly created credentials to login.
 	+ The navbar should be updated to show your first name once signed in. You should automatically be redirected to the home page, where you can select a product category(shoes/watches) and begin making purchases.
 	+ Your login should be persistent, i.e. reloading the website or navigating to a different page should keep you logged in until you log out.
+	
++ To log out:
+	+ Click on the Profile Icon in the upper right corner in the navigation bar.
+	+ A dropdown menu should give you the option to log out. Click ``Log Out``.
+	+ You are now logged out and you should be automatically redirected to the home page with the ``Log In`` Button replacing the Profile Icon. 
  
 
 #### Admins:
@@ -44,14 +49,25 @@ This is a website for online shopping intended to provide customers with the abi
     + Click on ``Orders`` tab on the left side bar to see your order history. This will include all of the purchase orders you have made throughout the course of your account. 
 
  
+ ## Routes Overview
+ + admin.js
+ 	+ Endpoints defined here are mainly used to handle admin requests. This includes getting all the users' data from the database and removing a user from the database.
+ + auth.js
+ 	+ Endpoints defined here are used to handle login, registration and authentication requests. 
+	+ When a user attempts to sign in with their credentials, a post request is made to check if their information exist in the database. 
+	+ When a user registers, a post request is made and their information is stored in the database.
+ + profile.js
+ 	+ Endpoints defined here are used to support user profile requests. 
+	+ To display a user's profile, a get request is made to retrieve a specific user's information from the database. These information include first name, last name and email address.
+	+ When a user edits their information, a patch request is made to update the user's details in the database.
+ + inventory.js
+ 	+ Endpoints defined here are used to handle products requests.
+	+ When adding a product, a post request is made to store the product's details into the database.
+	+ To display all products, a get request is made to retrieve all the products' information from the database.
+ + orders.js
+	+ Endpoints defined here are used to handle purchase order requests.
+	+ When a user makes a purchase, their order is submitted via a post request to the database.
+	+ When displaying a user's orders, a get request is made to retrieve all the orders this user has made.
 
-
-
-## Regular Users 
-* Otherwise you can register and login as regular users from the top right corner of home page
-  - Users are able edit your user information such as name, email and so on 
-  - Users can log out in our website from the top right corner of home page
-  - Users can add products to shopping cart by clicking the "add to cart" option on each product 
-  - Users can check out products directly from the shopping cart.
-
+ 
 
