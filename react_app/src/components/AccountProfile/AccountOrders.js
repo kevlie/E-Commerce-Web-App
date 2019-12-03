@@ -70,7 +70,6 @@ class AccountOrders extends Component {
   };
   render() {
     this.getUserOrder();
-    console.log(this.state);
     return (
       //   <>
       //     {!this.state.fail ? (
