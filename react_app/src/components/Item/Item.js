@@ -7,7 +7,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import Popover from "@material-ui/core/Popover";
 import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 
@@ -18,36 +17,15 @@ import { connect } from "react-redux";
 class Item extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   isPremium: false
-    // };
   }
-  // componentDidMount() {
-  //   // console.log(this.props.match.params.profileId);
-  //   fetch("http://localhost:3001/api/profile", {
-  //     method: "GET",
-  //     credentials: "include"
-  //   })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       if (json === null) {
-  //         // this.props.history.push("/login");
-  //       } else {
-  //         this.setState({
-  //           isPremium: json.isPremium
-  //         });
-  //       }
-  //     });
-  // }
+
   render() {
+    console.log("this is the image" + this.props.item.image);
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia
-            onClick={() => console.log("hi")}
-            className="cardMedia"
-            src={this.props.item.image}
-          />
+          <CardMedia className="cardMedia" image={this.props.item.image} />
+
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
             <div className="price">Price: ${this.props.item.price}</div>
@@ -61,6 +39,32 @@ class Item extends Component {
         >
           <div>Add to Cart</div>
         </CardActions>
+        <CardContent className="addItem">
+          <PopupState variant="popover" popupId="demo-popup-popover">
+            {popupState => (
+              <div>
+                <div {...bindTrigger(popupState)}>Details</div>
+                <Popover
+                  {...bindPopover(popupState)}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center"
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "center"
+                  }}
+                >
+                  <Box p={2}>
+                    <Typography>
+                      Description: {this.props.item.description}
+                    </Typography>
+                  </Box>
+                </Popover>
+              </div>
+            )}
+          </PopupState>
+        </CardContent>
       </Card>
     );
   }

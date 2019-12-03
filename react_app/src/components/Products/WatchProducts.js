@@ -33,10 +33,10 @@ class WatchProducts extends Component {
           console.log("none");
         } else {
           console.log(json);
-          this.setState({ watchCollection: json });
-          this.state.watchCollection.map(item => {
-            item["image"] = "data:image/jpg;base64, " + item["image"];
+          json.forEach(item => {
+            item["image"] = "data:image/jpg;base64, ".concat(item["image"]);
           });
+          this.setState({ watchCollection: json });
           console.log(this.state.watchCollection);
         }
       });
