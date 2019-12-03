@@ -43,7 +43,11 @@ class Item extends Component {
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" src={this.props.item.image} />
+          <CardMedia
+            onClick={() => console.log("hi")}
+            className="cardMedia"
+            src={this.props.item.image}
+          />
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
             <div className="price">Price: ${this.props.item.price}</div>
@@ -57,34 +61,6 @@ class Item extends Component {
         >
           <div>Add to Cart</div>
         </CardActions>
-
-        <CardContent className="addItem">
-          <PopupState variant="popover" popupId="demo-popup-popover">
-            {popupState => (
-              <div>
-                <div {...bindTrigger(popupState)}>Details</div>
-                <Popover
-                  {...bindPopover(popupState)}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "center"
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "center"
-                  }}
-                >
-                  <Box p={2}>
-                    <Typography>
-                      Name: {this.props.item.name} Description:{" "}
-                      {this.props.item.description}
-                    </Typography>
-                  </Box>
-                </Popover>
-              </div>
-            )}
-          </PopupState>
-        </CardContent>
       </Card>
     );
   }
