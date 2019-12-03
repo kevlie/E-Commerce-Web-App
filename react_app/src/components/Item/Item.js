@@ -40,17 +40,15 @@ class Item extends Component {
   //     });
   // }
   render() {
+      console.log("this is the image" + this.props.item.image)
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" src={this.props.item.image} />
+          <CardMedia className="cardMedia" image={this.props.item.image} />
+
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>
-            {/* {!this.state.isPremium ? ( */}
             <div className="price">Price: ${this.props.item.price}</div>
-            {/* ) : ( */}
-            {/* <div className="price">Price: ${this.props.item.price * 0.5}</div> */}
-            {/* )} */}
           </CardContent>
         </CardActionArea>
         <CardActions

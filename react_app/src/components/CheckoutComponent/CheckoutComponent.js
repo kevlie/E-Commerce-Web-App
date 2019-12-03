@@ -45,7 +45,9 @@ class CheckoutComponent extends Component {
   handleCheckOut() {
     let array = [];
     this.props.cart.map(item => {
+      // console.log(item.id);
       array.push({
+        itemId: item.id,
         quantity: item.count,
         currentUnitPrice: item.price,
         itemName: item.name

@@ -12,7 +12,7 @@
 }
 .OrderHeader {
   padding: 10px;
-  background: rgb(138, 38, 151);
+  background: linear-gradient(to right bottom, #7a3a55, #82ffa1);
 }
 .OrderHeader > a {
   display: inline-block;
