@@ -18,7 +18,6 @@ class AccountOrders extends Component {
   }
 
   getUserOrder() {
-    // console.log(this.state.userId);
     fetch("http://localhost:3001/api/orders/", {
       method: "GET",
       credentials: "include",
@@ -28,13 +27,10 @@ class AccountOrders extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        // console.log(json.length);
         this.setState({ ordersList: json });
       });
   }
   componentDidMount() {
-    // console.log(this.props.userId);
-    // console.log(this.props.match.params.profileId);
     fetch("http://localhost:3001/api/profile", {
       method: "GET",
       credentials: "include"
@@ -42,7 +38,6 @@ class AccountOrders extends Component {
       .then(response => response.json())
       .then(json => {
         if (json === null) {
-          //   this.props.history.push("/login");
         } else {
           this.setState({
             userId: json._id,
@@ -62,7 +57,6 @@ class AccountOrders extends Component {
     const singleOrder = this.state.ordersList.find(order => order.id === id);
     let orderTotal = 0;
     singleOrder.items.forEach(item => {
-      //   console.log(item.quantity);
       orderTotal = orderTotal + item.currentUnitPrice * item.quantity;
     });
 
@@ -71,8 +65,6 @@ class AccountOrders extends Component {
   render() {
     this.getUserOrder();
     return (
-      //   <>
-      //     {!this.state.fail ? (
       <React.Fragment>
         <Header />
         <div className="Content">
@@ -126,11 +118,6 @@ class AccountOrders extends Component {
           </div>
         </div>
       </React.Fragment>
-      // )
-      // : (
-      //   <h1>You have not purchased anything</h1>
-      // )}
-      //   </>
     );
   }
 }

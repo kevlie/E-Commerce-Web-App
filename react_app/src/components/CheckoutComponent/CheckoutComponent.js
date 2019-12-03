@@ -91,11 +91,7 @@ class CheckoutComponent extends Component {
             <Fragment>
               <Card>
                 <img className="checkoutImages" src={item.image} alt="eet" />
-                {/* <img
-                  className="checkoutImages"
-                  src={<item className="image"></item>}
-                  alt="eet"
-                /> */}
+
                 <CardContent component="span">
                   <Typography variant="h5">{item.name}</Typography>
                   <span>Quantity: {item.count}</span>
@@ -146,7 +142,6 @@ class CheckoutComponent extends Component {
             color="primary"
             onClick={() => {
               this.handleCheckOut();
-              //   this.thankYouRedirect;
             }}
           >
             Buy It

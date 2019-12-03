@@ -19,7 +19,6 @@ class WatchProducts extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.match.params.profileId);
     fetch(
       "http://localhost:3001/api/inventory?category=Watches&ignoreImage=false",
       {
@@ -47,9 +46,7 @@ class WatchProducts extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        // console.log(json);
         if (json === null) {
-          // this.props.history.push("/login");
         } else {
           this.setState({
             isPremium: json.isPremium

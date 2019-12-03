@@ -17,14 +17,25 @@ import { connect } from "react-redux";
 class Item extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      modal: false
+    };
   }
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
 
   render() {
-    console.log("this is the image" + this.props.item.image);
     return (
       <Card className="item">
         <CardActionArea>
-          <CardMedia className="cardMedia" image={this.props.item.image} />
+          <CardMedia
+            className="cardMedia"
+            image={this.props.item.image}
+            onClick={this.toggle}
+          />
 
           <CardContent>
             <div className="itemName">{this.props.item.name}</div>

@@ -58,23 +58,8 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Righteous"
   }
 }));
-// const getUserDetails = () => {
-//   fetch("http://localhost:3001/api/profile", {
-//     method: "GET",
-//     credentials: "include"
-//   })
-//     .then(response => response.json())
-//     .then(json => {
-//       if (json === null) {
-//         //   this.props.history.push("/login");
-//       } else {
-//         console.log(json._id)
-//         return json._id;
-//       }
-//     });
-// };
+
 export default function Profile() {
-  // let userId = getUserDetails();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 

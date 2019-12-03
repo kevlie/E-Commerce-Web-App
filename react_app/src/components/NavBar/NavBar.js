@@ -37,7 +37,6 @@ class NavBar extends Component {
       .then(response => response.json())
       .then(json => {
         if (json === null) {
-          // this.props.history.push("/login");
         } else {
           this.setState({
             id: json._id,

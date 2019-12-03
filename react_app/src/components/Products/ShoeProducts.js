@@ -46,9 +46,7 @@ class ShoeProducts extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        // console.log(json);
         if (json === null) {
-          // this.props.history.push("/login");
         } else {
           this.setState({
             isPremium: json.isPremium
@@ -62,7 +60,6 @@ class ShoeProducts extends Component {
     return (
       <div>
         {this.state.shoeCollection.map(item => {
-          // console.log(item.image);
           return <Item key={item.id} item={item} />;
         })}
       </div>

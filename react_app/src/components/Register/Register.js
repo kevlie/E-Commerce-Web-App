@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Register.css";
 
 class Register extends Component {
@@ -119,21 +119,6 @@ class Register extends Component {
                   }}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <TextField
-                  placeholder="Input admin to register as an admin"
-                  variant="outlined"
-                  fullWidth
-                  name="admin"
-                  label="Admin"
-                  id="admin"
-                  onChange={e => {
-                    this.setState({
-                      admin: e.target.value.toString()
-                    });
-                  }}
-                />
-              </Grid> */}
               <Grid item xs={12}></Grid>
             </Grid>
             <Button

@@ -1,12 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import "./Profile.css";
-
-// import accountData from "../AccountData.js";
-// import sign_in from "../../redux/actions.js";
 
 class EditProfile extends Component {
   constructor(props) {
