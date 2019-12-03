@@ -11,7 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withRouter } from "react-router-dom";
 import ShoppingCartBar from "../ShoppingCartBar/ShoppingCartBar";
 import { connect } from "react-redux";
-import { sign_in } from "../../redux/actions.js";
+import { sign_in, CLEAR_CART } from "../../redux/actions.js";
 
 const mapStateToProps = state => {
   return {
@@ -58,8 +58,8 @@ class NavBar extends Component {
     }).then(res => {
       if (res.status === 200) {
         this.props.dispatch(sign_in());
+        this.props.dispatch(CLEAR_CART());
         this.props.history.push("/");
-        console.log("in");
       }
     });
   }
