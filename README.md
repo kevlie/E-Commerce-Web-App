@@ -10,8 +10,6 @@ This is a website for online shopping intended to provide customers with the abi
 
 ## How to use
 #### General Usage:
-+ To access the website:
-    + Our project is deployed online at: [url]
 
 + To log in/sign up:
 	+ Click on ``Login`` in the upper right corner in the navigation bar.
@@ -40,7 +38,7 @@ This is a website for online shopping intended to provide customers with the abi
   
 #### Registered Users:
 + To operate as a registered user:
-    + First make sure that you have logged in. Mock test data credentials: Email: user@gmail.com  Password: user
+    + First make sure that you have logged in. Mock test data credentials: Email: user@mail.com  Password: user
     + Select a category(Shoes/Watches) to browse through various items. Click on details below each item to see the item's description. Click on ``add to Cart`` to add items that you are interested in into your shopping cart. 
     + To make a purchase, first click on the shopping cart icon at the top right corner of the navigation bar and click on ``checkout``, which will bring you to the checkout page. From there, you can review the items you wish to purchase and add/delete quantity of items by pressing on the ``+/-`` buttons. You may also choose to remove an item you do not want to purchase. Once you have decided, click on ``Buy It`` to confirm your purchase! 
     + Click on the profile Icon in the top right corner of the navigation bar, and select ``Profile``. You should be able to see your user details. 
