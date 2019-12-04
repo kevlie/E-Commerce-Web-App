@@ -20,7 +20,7 @@ class WatchProducts extends Component {
 
   componentDidMount() {
     fetch(
-      "http://localhost:3001/api/inventory?category=Watches&ignoreImage=false",
+      "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"

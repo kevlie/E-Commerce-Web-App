@@ -14,7 +14,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+if(process.env.REMOTE) {
+    app.use(cors({credentials: true, origin: "https://csc309-team19-app.herokuapp.com"}));
+} else {
+    app.use(cors({credentials: true, origin: "http://localhost:3000"}));
+}
 
 // Creates a cookie session
 app.use(
