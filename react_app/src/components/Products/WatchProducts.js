@@ -19,7 +19,7 @@ class WatchProducts extends Component {
   }
 
   componentDidMount() {
-
+    console.log(process.env)
     fetch(
         "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
       {
