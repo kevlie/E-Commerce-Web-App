@@ -20,8 +20,14 @@ class WatchProducts extends Component {
 
   componentDidMount() {
     console.log(process.env);
+    let uri
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
     fetch(
-      "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
+      uri + "/api/inventory?category=Watches&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"
