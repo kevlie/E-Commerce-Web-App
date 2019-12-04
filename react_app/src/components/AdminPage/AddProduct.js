@@ -26,7 +26,7 @@ class AddProduct extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/profile", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
@@ -49,7 +49,7 @@ class AddProduct extends Component {
     data.append("description", this.state.description);
     data.append("itemImage", this.state.image);
     axios
-      .post("http://localhost:3001/api/inventory", data)
+      .post("https://csc309-team19-api.herokuapp.com" + "/api/inventory", data)
       .then(res => {
         if (res.status == 200) {
           this.setState({

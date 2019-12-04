@@ -13,7 +13,7 @@ class UserTable extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/profile", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
@@ -29,7 +29,7 @@ class UserTable extends React.Component {
       });
   }
   componentWillMount() {
-    fetch("http://localhost:3001/api/admin/users", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/admin/users", {
       method: "GET",
       credentials: "include"
     })
@@ -80,10 +80,14 @@ class UserTable extends React.Component {
             }}
             editable={{
               onRowDelete: oldData =>
-                fetch(`http://localhost:3001/api/admin/${oldData.id}`, {
-                  method: "DELETE",
-                  credentials: "include"
-                })
+                fetch(
+                  "https://csc309-team19-api.herokuapp.com" +
+                    `/api/admin/${oldData.id}`,
+                  {
+                    method: "DELETE",
+                    credentials: "include"
+                  }
+                )
                   .then(response => response.json())
                   .then(json => {
                     if (json !== null) {

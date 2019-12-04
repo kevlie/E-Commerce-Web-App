@@ -30,7 +30,7 @@ class NavBar extends Component {
     };
   }
   handleLogin() {
-    fetch("http://localhost:3001/api/profile/", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile/", {
       method: "GET",
       credentials: "include"
     })
@@ -47,7 +47,7 @@ class NavBar extends Component {
       });
   }
   handleLogout() {
-    fetch("http://localhost:3001/api/auth/logout", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/logout", {
       method: "get",
       headers: {
         Accept: "application/json",
@@ -64,7 +64,7 @@ class NavBar extends Component {
   }
 
   handleIsLoggedIn() {
-    fetch("http://localhost:3001/api/auth/isLoggedIn", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/isLoggedIn", {
       method: "get",
       headers: {
         Accept: "application/json",
