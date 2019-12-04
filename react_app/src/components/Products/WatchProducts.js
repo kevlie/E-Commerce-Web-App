@@ -19,9 +19,15 @@ class WatchProducts extends Component {
   }
 
   componentDidMount() {
+    if (process.env.REMOTE) {
+      console.log("REMOTE")
+    } else {
+      console.log("LOCAL")
+    }
+
     fetch(
-        (process.env.REMOTE ? "https://csc309-team19-processapi.herokuapp.com" : "localhost:3001")
-        + "/api/inventory?category=Watches&ignoreImage=false",
+        (process.env.REMOTE ? "https://csc309-team19-api.herokuapp.com" : "http://localhost:3001")
+            .concat("/api/inventory?category=Watches&ignoreImage=false"),
       {
         method: "GET",
         credentials: "include"
