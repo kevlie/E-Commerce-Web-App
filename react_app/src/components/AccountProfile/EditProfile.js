@@ -17,7 +17,7 @@ class EditProfile extends Component {
     };
   }
   componentDidMount() {
-    fetch(`http://localhost:3001/api/profile`, {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
@@ -36,7 +36,7 @@ class EditProfile extends Component {
       });
   }
   handleUpdate() {
-    fetch("http://localhost:3001/api/profile/edit", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile/edit", {
       method: "PATCH",
       headers: {
         Accept: "application/json",

@@ -18,7 +18,7 @@ class AccountOrders extends Component {
   }
 
   getUserOrder() {
-    fetch("http://localhost:3001/api/orders/", {
+    fetch("https://csc309-team19-api.herokuapp.com" + " /api/orders/", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -31,7 +31,7 @@ class AccountOrders extends Component {
       });
   }
   componentDidMount() {
-    fetch("http://localhost:3001/api/profile", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
       method: "GET",
       credentials: "include"
     })

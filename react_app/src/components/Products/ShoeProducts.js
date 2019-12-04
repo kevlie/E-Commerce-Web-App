@@ -20,7 +20,8 @@ class ShoeProducts extends Component {
   }
   componentDidMount() {
     fetch(
-      "http://localhost:3001/api/inventory?category=Shoes&ignoreImage=false",
+      "https://csc309-team19-api.herokuapp.com" +
+        "/api/inventory?category=Shoes&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"
@@ -40,7 +41,7 @@ class ShoeProducts extends Component {
         }
       });
 
-    fetch("http://localhost:3001/api/profile", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
