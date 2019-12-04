@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
+import {Argv as process} from "@jest/types/build/Config";
 
 class WatchProducts extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class WatchProducts extends Component {
 
   componentDidMount() {
     fetch(
-      "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
+        (process.env.REMOTE ? "https://csc309-team19-api.herokuapp.com" : "localhost:3001")
+        + "/api/inventory?category=Watches&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"

@@ -16,8 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 if(process.env.REMOTE) {
     app.use(cors({credentials: true, origin: "https://csc309-team19-app.herokuapp.com"}));
+    console.log("Remote Deploy")
 } else {
     app.use(cors({credentials: true, origin: "http://localhost:3000"}));
+    console.log("Local Deploy")
 }
 
 // Creates a cookie session
