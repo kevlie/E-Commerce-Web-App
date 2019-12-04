@@ -19,9 +19,14 @@ class ShoeProducts extends Component {
     }
   }
   componentDidMount() {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
     fetch(
-      "https://csc309-team19-api.herokuapp.com" +
-        "/api/inventory?category=Shoes&ignoreImage=false",
+      uri + "/api/inventory?category=Shoes&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"
@@ -41,7 +46,7 @@ class ShoeProducts extends Component {
         }
       });
 
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
+    fetch(uri + "/api/profile", {
       method: "GET",
       credentials: "include"
     })

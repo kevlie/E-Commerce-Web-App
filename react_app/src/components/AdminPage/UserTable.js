@@ -13,7 +13,13 @@ class UserTable extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
@@ -29,7 +35,13 @@ class UserTable extends React.Component {
       });
   }
   componentWillMount() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/admin/users", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/admin/users", {
       method: "GET",
       credentials: "include"
     })
@@ -79,23 +91,31 @@ class UserTable extends React.Component {
               return <OrderTable userId={rowData.id} />;
             }}
             editable={{
-              onRowDelete: oldData =>
+              onRowDelete: oldData => {
+                let uri;
+                if (process.env.NODE_ENV === "production") {
+                  uri = "https://csc309-team19-api.herokuapp.com"
+                } else {
+                  uri = "http://localhost:3001"
+                }
                 fetch(
-                  "https://csc309-team19-api.herokuapp.com" +
+                    uri +
                     `/api/admin/${oldData.id}`,
-                  {
-                    method: "DELETE",
-                    credentials: "include"
-                  }
-                )
-                  .then(response => response.json())
-                  .then(json => {
-                    if (json !== null) {
-                      window.location.reload();
-                    } else {
-                      console.log("Deletion Failed");
+                    {
+                      method: "DELETE",
+                      credentials: "include"
                     }
-                  })
+                )
+                    .then(response => response.json())
+                    .then(json => {
+                      if (json !== null) {
+                        window.location.reload();
+                      } else {
+                        console.log("Deletion Failed");
+                      }
+                    })
+              }
+
             }}
           />
         )}

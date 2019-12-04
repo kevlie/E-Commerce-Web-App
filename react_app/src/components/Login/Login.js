@@ -25,7 +25,13 @@ class Login extends Component {
   }
 
   handleLogin() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/login", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/auth/login", {
       method: "post",
       headers: {
         Accept: "application/json",

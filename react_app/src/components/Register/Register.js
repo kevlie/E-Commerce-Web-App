@@ -20,7 +20,13 @@ class Register extends Component {
   }
 
   handleRegister() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/register", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/auth/register", {
       method: "post",
       headers: {
         Accept: "application/json",

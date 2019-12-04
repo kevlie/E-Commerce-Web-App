@@ -53,7 +53,13 @@ class CheckoutComponent extends Component {
         itemName: item.name
       });
     });
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/orders", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/orders", {
       method: "post",
       headers: {
         Accept: "application/json",

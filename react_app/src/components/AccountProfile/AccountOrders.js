@@ -18,7 +18,13 @@ class AccountOrders extends Component {
   }
 
   getUserOrder() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/orders/", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/orders/", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -31,7 +37,13 @@ class AccountOrders extends Component {
       });
   }
   componentDidMount() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/profile", {
       method: "GET",
       credentials: "include"
     })

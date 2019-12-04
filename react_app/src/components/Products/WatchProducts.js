@@ -20,7 +20,7 @@ class WatchProducts extends Component {
 
   componentDidMount() {
     console.log(process.env);
-    let uri
+    let uri;
     if (process.env.NODE_ENV === "production") {
       uri = "https://csc309-team19-api.herokuapp.com"
     } else {
@@ -47,7 +47,7 @@ class WatchProducts extends Component {
         }
       });
 
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
+    fetch(uri + "/api/profile", {
       method: "GET",
       credentials: "include"
     })

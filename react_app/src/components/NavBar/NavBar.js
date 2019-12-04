@@ -30,7 +30,13 @@ class NavBar extends Component {
     };
   }
   handleLogin() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile/", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/profile/", {
       method: "GET",
       credentials: "include"
     })
@@ -47,7 +53,13 @@ class NavBar extends Component {
       });
   }
   handleLogout() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/logout", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/auth/logout", {
       method: "get",
       headers: {
         Accept: "application/json",
@@ -64,7 +76,13 @@ class NavBar extends Component {
   }
 
   handleIsLoggedIn() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/auth/isLoggedIn", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/auth/isLoggedIn", {
       method: "get",
       headers: {
         Accept: "application/json",

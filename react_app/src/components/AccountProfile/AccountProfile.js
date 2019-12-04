@@ -18,7 +18,13 @@ class AccountProfile extends Component {
     };
   }
   handlePremium() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile/edit", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/profile/edit", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -38,7 +44,13 @@ class AccountProfile extends Component {
   }
 
   componentDidMount() {
-    fetch("https://csc309-team19-api.herokuapp.com" + "/api/profile", {
+    let uri;
+    if (process.env.NODE_ENV === "production") {
+      uri = "https://csc309-team19-api.herokuapp.com"
+    } else {
+      uri = "http://localhost:3001"
+    }
+    fetch(uri + "/api/profile", {
       method: "GET",
       credentials: "include"
     })
