@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import Item from "../Item/Item";
-<<<<<<< HEAD
-import { Argv as process } from "@jest/types/build/Config";
-=======
->>>>>>> 1d95caa77f42ccc5718ff5edce6fa7e1af460e02
 
 class WatchProducts extends Component {
   constructor(props) {
@@ -23,9 +19,9 @@ class WatchProducts extends Component {
   }
 
   componentDidMount() {
-    console.log(process.env)
+    console.log(process.env);
     fetch(
-        "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
+      "https://csc309-team19-api.herokuapp.com/api/inventory?category=Watches&ignoreImage=false",
       {
         method: "GET",
         credentials: "include"
