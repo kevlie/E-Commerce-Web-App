@@ -18,7 +18,7 @@ class AccountOrders extends Component {
   }
 
   getUserOrder() {
-    fetch("https://csc309-team19-api.herokuapp.com" + " /api/orders/", {
+    fetch("https://csc309-team19-api.herokuapp.com" + "/api/orders/", {
       method: "GET",
       credentials: "include",
       headers: {
