@@ -1,13 +1,5 @@
-## CSC309 Project Description
-This is a website for online shopping intended to provide customers with the ability to browse through various shoes and watches and purchase them online without having to visit the shop physically. Registered customers may place products of interest in a shopping cart, where it is presented as an order at checkout. This application was built with MongoDB, Express, React and Node.js. 
+This is a website for online shopping intended to provide customers with the ability to browse through various shoes and watches and purchase them online without having to visit the shop physically. Registered customers may place products of interest in a shopping cart, where it is presented as an order at checkout. This application was built with MongoDB, Express, React and Node.js (MERN). 
 
-## Getting Started
-
-* Also you can run the web app by running following commands in the react_app and express_server directory:
-### `npm install`
-### `npm start`
-  -The MongoDB is hosted on Atlas DB. 
-  
 ## Links
 Web Application: https://csc309-team19-app.herokuapp.com
 
